@@ -54,6 +54,16 @@ public class DemoApplication {
 		mv.setViewName("master");
 		return mv;
 	}
+
+	@RequestMapping(value="/aulas", method=RequestMethod.GET)
+	@ResponseBody
+	public ModelAndView aulas(ModelAndView mv) {
+		//mv.addObject("currentDate", new Date());
+		//mv.addObject("writers", writer.getWriters());
+
+		mv.setViewName("aulas");
+		return mv;
+	}
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
