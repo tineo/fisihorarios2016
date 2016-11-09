@@ -43,12 +43,8 @@
     <!-- BEGIN HEADER INNER -->
     <div class="page-header-inner ">
       <!-- BEGIN LOGO -->
-      <div class="page-logo">
-        <a href="index.html">
-          <img th:src="@{/assets/layouts/layout/img/logo.png}" alt="logo" class="logo-default" /> </a>
-        <div class="menu-toggler sidebar-toggler">
-          <span></span>
-        </div>
+      <div class="page-logo" th:include="fragment/logo">
+
       </div>
       <!-- END LOGO -->
       <!-- BEGIN RESPONSIVE MENU TOGGLER -->
@@ -57,9 +53,9 @@
       </a>
       <!-- END RESPONSIVE MENU TOGGLER -->
       <!-- BEGIN TOP NAVIGATION MENU -->
-        <!-- -->
-        <div class="top-menu" th:include="fragment/topbar" ></div>
-        <!-- -->
+      <!-- -->
+      <div class="top-menu" th:include="fragment/topbar" ></div>
+      <!-- -->
       <!-- END TOP NAVIGATION MENU -->
     </div>
     <!-- END HEADER INNER -->
@@ -83,11 +79,11 @@
         <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
         <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
         <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-          <!-- -->
-            <ul th:include="fragment/sidebar"  class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
+        <!-- -->
+        <ul th:include="fragment/sidebar"  class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
 
-            </ul>
-          <!-- -->
+        </ul>
+        <!-- -->
 
         <!-- END SIDEBAR MENU -->
         <!-- END SIDEBAR MENU -->
@@ -240,14 +236,14 @@
     <!-- END CONTENT -->
     <!-- BEGIN QUICK SIDEBAR -->
 
-      <a href="javascript:;" class="page-quick-sidebar-toggler">
-          <i class="icon-login"></i>
-      </a>
+    <a href="javascript:;" class="page-quick-sidebar-toggler">
+      <i class="icon-login"></i>
+    </a>
 
-      <div th:include="fragment/quickmenu" class="page-quick-sidebar-wrapper" data-close-on-body-click="false"></div>
+    <div th:include="fragment/quickmenu" class="page-quick-sidebar-wrapper" data-close-on-body-click="false"></div>
 
 
-      <!-- END QUICK SIDEBAR -->
+    <!-- END QUICK SIDEBAR -->
   </div>
   <!-- END CONTAINER -->
   <!-- BEGIN FOOTER -->
@@ -257,37 +253,8 @@
   <!-- END FOOTER -->
 </div>
 <!-- BEGIN QUICK NAV -->
-<nav class="quick-nav">
-  <a class="quick-nav-trigger" href="#0">
-    <span aria-hidden="true"></span>
-  </a>
-  <ul>
-    <li>
-      <a href="https://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes" target="_blank" class="active">
-        <span>Purchase Metronic</span>
-        <i class="icon-basket"></i>
-      </a>
-    </li>
-    <li>
-      <a href="https://themeforest.net/item/metronic-responsive-admin-dashboard-template/reviews/4021469?ref=keenthemes" target="_blank">
-        <span>Customer Reviews</span>
-        <i class="icon-users"></i>
-      </a>
-    </li>
-    <li>
-      <a href="http://keenthemes.com/showcast/" target="_blank">
-        <span>Showcase</span>
-        <i class="icon-user"></i>
-      </a>
-    </li>
-    <li>
-      <a href="http://keenthemes.com/metronic-theme/changelog/" target="_blank">
-        <span>Changelog</span>
-        <i class="icon-graph"></i>
-      </a>
-    </li>
-  </ul>
-  <span aria-hidden="true" class="quick-nav-bg"></span>
+<nav class="quick-nav" th:include="fragment/quicknav">
+
 </nav>
 <div class="quick-nav-overlay"></div>
 <!-- END QUICK NAV -->
