@@ -16,7 +16,7 @@ public class DemoApplication {
 	@RequestMapping("/")
 	@ResponseBody
 	String home() {
-		return "<input type='submit' value='meow' /><p>c</p><p>d</p><b><span>a</span><span>b</span></b>";
+		return "<input type='submit' value='meow' /><p>c</p><p>d</p><b><span>debra</span><span>b</span></b>";
 	}
 
 	@RequestMapping(value="/cosa", method=RequestMethod.GET)
