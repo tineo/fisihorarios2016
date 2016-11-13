@@ -19,6 +19,12 @@ public class DemoApplication {
 		return "<input type='submit' value='meow' /><p>c</p><p>d</p><b><span>a</span><span>b</span></b>";
 	}
 
+	@RequestMapping("/test")
+	@ResponseBody
+	String test() {
+		return "<input type='submit' value='meow' /><p>c</p><p>d</p><b><span>test</span><span>b</span></b>";
+	}
+
 	@RequestMapping(value="/cosa", method=RequestMethod.GET)
 	@ResponseBody
 	ArrayList<Elemento> porget(@RequestParam(value="p", defaultValue = "no hay nada") String param ) {
