@@ -104,12 +104,13 @@ public class DatabaseConfig {
       </property>
    </bean>*/
   @Bean
-  public org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean entityManagerFactoryBean() {
+  public org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean entityManagerFactory() {
     org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean entityManagerFactory =
             new LocalContainerEntityManagerFactoryBean();
 
     entityManagerFactory.setDataSource(dataSource());
     entityManagerFactory.setPackagesToScan(ENTITYMANAGER_PACKAGES_TO_SCAN);
+    entityManagerFactory.setJpaVendorAdapter(new org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter());
     Properties hibernateProperties = new Properties();
     hibernateProperties.put("hibernate.dialect", HIBERNATE_DIALECT);
     hibernateProperties.put("hibernate.show_sql", HIBERNATE_SHOW_SQL);
