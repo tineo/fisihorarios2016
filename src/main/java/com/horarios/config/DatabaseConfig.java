@@ -59,7 +59,7 @@ public class DatabaseConfig {
     sessionFactoryBean.setDataSource(dataSource());
     sessionFactoryBean.setPackagesToScan(ENTITYMANAGER_PACKAGES_TO_SCAN);
     Properties hibernateProperties = new Properties();
-    hibernateProperties.put("hibernate.dialect", HIBERNATE_DIALECT);
+    hibernateProperties.put("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
     hibernateProperties.put("hibernate.show_sql", HIBERNATE_SHOW_SQL);
     hibernateProperties.put("hibernate.hbm2ddl.auto", HIBERNATE_HBM2DDL_AUTO);
     sessionFactoryBean.setHibernateProperties(hibernateProperties);
