@@ -5,8 +5,11 @@ import java.util.Properties;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
@@ -40,7 +43,7 @@ public class DatabaseConfig {
   @Value("${entitymanager.packagesToScan}")
   private String ENTITYMANAGER_PACKAGES_TO_SCAN;
 
-  @Bean
+  /*@Bean
   public DataSource dataSource() {
     DriverManagerDataSource dataSource = new DriverManagerDataSource();
     dataSource.setDriverClassName(DB_DRIVER);
@@ -48,7 +51,7 @@ public class DatabaseConfig {
     dataSource.setUsername(DB_USERNAME);
     dataSource.setPassword(DB_PASSWORD);
     return dataSource;
-  }
+  }*/
 
   @Bean
   public LocalSessionFactoryBean sessionFactory() {
@@ -71,5 +74,14 @@ public class DatabaseConfig {
     transactionManager.setSessionFactory(sessionFactory().getObject());
     return transactionManager;
   }
+
+
+    @Bean
+    @Primary
+    @ConfigurationProperties(prefix = "spring.datasource")
+    public DataSource dataSource() {
+      return DataSourceBuilder.create().build();
+
+    }
 
 } // class DatabaseConfig
