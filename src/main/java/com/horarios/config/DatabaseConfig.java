@@ -5,6 +5,8 @@ import java.util.Properties;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -16,6 +18,7 @@ import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
+@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 @EnableTransactionManagement
 public class DatabaseConfig {
 
