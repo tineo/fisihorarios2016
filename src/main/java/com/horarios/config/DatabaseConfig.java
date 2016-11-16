@@ -46,6 +46,14 @@ public class DatabaseConfig {
   @Value("${entitymanager.packagesToScan}")
   private String ENTITYMANAGER_PACKAGES_TO_SCAN;
 
+  @Bean
+  @Primary
+  @ConfigurationProperties(prefix = "spring.datasource")
+  public DataSource dataSource() {
+    return DataSourceBuilder.create().build();
+
+  }
+
   /*@Bean
   public DataSource dataSource() {
     DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -79,12 +87,6 @@ public class DatabaseConfig {
   }
 
 
-    @Bean
-    @Primary
-    @ConfigurationProperties(prefix = "spring.datasource")
-    public DataSource dataSource() {
-      return DataSourceBuilder.create().build();
 
-    }
 
 } // class DatabaseConfig
