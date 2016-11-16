@@ -61,6 +61,16 @@ public class MainController {
     return mv;
   }
 
+  @RequestMapping(value="/master", method=RequestMethod.POST)
+  @ResponseBody
+  public ModelAndView masterpost(ModelAndView mv) {
+    //mv.addObject("currentDate", new Date());
+    //mv.addObject("writers", writer.getWriters());
+
+    mv.setViewName("master");
+    return mv;
+  }
+
   @RequestMapping(value="/aulas", method=RequestMethod.GET)
   @ResponseBody
   public ModelAndView aulas(ModelAndView mv) {
