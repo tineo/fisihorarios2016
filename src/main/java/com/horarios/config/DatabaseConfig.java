@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
@@ -85,7 +86,38 @@ public class DatabaseConfig {
     transactionManager.setSessionFactory(sessionFactory().getObject());
     return transactionManager;
   }
+/*
+* <bean id="entityManagerFactoryBean" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+      <property name="dataSource" ref="dataSource" />
+      <!-- This makes /META-INF/persistence.xml is no longer necessary -->
+      <property name="packagesToScan" value="com.howtodoinjava.demo.model" />
+      <!-- JpaVendorAdapter implementation for Hibernate EntityManager.
+           Exposes Hibernate's persistence provider and EntityManager extension interface -->
+      <property name="jpaVendorAdapter">
+         <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+      </property>
+      <property name="jpaProperties">
+         <props>
+            <prop key="hibernate.hbm2ddl.auto">validate</prop>
+            <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+         </props>
+      </property>
+   </bean>*/
+  @Bean
+  public org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean entityManagerFactoryBean() {
+    org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean entityManagerFactory =
+            new LocalContainerEntityManagerFactoryBean();
 
+    entityManagerFactory.setDataSource(dataSource());
+    entityManagerFactory.setPackagesToScan(ENTITYMANAGER_PACKAGES_TO_SCAN);
+    Properties hibernateProperties = new Properties();
+    hibernateProperties.put("hibernate.dialect", HIBERNATE_DIALECT);
+    hibernateProperties.put("hibernate.show_sql", HIBERNATE_SHOW_SQL);
+    hibernateProperties.put("hibernate.hbm2ddl.auto", HIBERNATE_HBM2DDL_AUTO);
+    entityManagerFactory.setJpaProperties(hibernateProperties);
+
+    return entityManagerFactory;
+  }
 
 
 
