@@ -17,7 +17,7 @@ public class Usuario {
     private int id;
 
     @NotNull
-    private String nombre;
+    private String nombres;
     @NotNull
     private String apepaterno;
     @NotNull
@@ -35,12 +35,12 @@ public class Usuario {
     private String telefono;
 
     public Usuario() {}
-    public Usuario(long id) {
+    public Usuario(int id) {
         this.id = id;
     }
 
     public Usuario(String nombre, String apepaterno, String apematerno, String username, String password, int estado, String email, String telefono) {
-        this.nombre = nombre;
+        this.nombres = nombre;
         this.apepaterno = apepaterno;
         this.apematerno = apematerno;
         this.username = username;
@@ -64,7 +64,7 @@ public class Usuario {
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.nombres = nombre;
     }
 
     public String getApepaterno() {
