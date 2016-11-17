@@ -6,6 +6,7 @@ import javax.transaction.Transactional;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -21,7 +22,18 @@ public class UserDao {
   }
 
   public void save(User user) {
-    getSession().save(user);
+    Transaction tx = null;
+    try {
+      // create session
+      tx = getSession().beginTransaction();
+      // do something
+      getSession().save(user);
+      tx.commit();
+    } catch (Exception exp) {
+      tx.rollback();
+      // close session
+    }
+
     return;
   }
 
