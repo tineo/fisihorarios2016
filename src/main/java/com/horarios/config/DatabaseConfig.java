@@ -1,5 +1,7 @@
 package com.horarios.config;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Properties;
 
 import javax.sql.DataSource;
@@ -51,9 +53,13 @@ public class DatabaseConfig {
   @Primary
   @ConfigurationProperties(prefix = "spring.datasource")
   public DataSource dataSource() {
+
+
     return DataSourceBuilder.create().build();
 
   }
+
+
 
   /*@Bean
   public DataSource dataSource() {
