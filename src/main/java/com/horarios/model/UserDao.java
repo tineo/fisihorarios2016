@@ -16,13 +16,15 @@ public class UserDao {
 
   @Autowired
   private SessionFactory _sessionFactory;
+  @Autowired
+  private Transaction tx;
 
   private Session getSession() {
     return _sessionFactory.getCurrentSession();
   }
 
   public void save(User user) {
-    Transaction tx = null;
+
     try {
       // create session
       tx = getSession().beginTransaction();
