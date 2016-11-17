@@ -29,9 +29,11 @@ public class UserDao {
       // create session
       tx = getSession().beginTransaction();
       // do something
+      System.out.println("org.hibernate.beginTransaction");
       getSession().save(user);
       tx.commit();
     } catch (org.hibernate.TransactionException exp) {
+      System.out.println("org.hibernate.TransactionException");
       tx.rollback();
       // close session
     }
