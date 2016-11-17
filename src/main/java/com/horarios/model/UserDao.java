@@ -16,7 +16,7 @@ public class UserDao {
 
   @Autowired
   private SessionFactory _sessionFactory;
-  @Autowired
+
   private Transaction tx;
 
   private Session getSession() {
