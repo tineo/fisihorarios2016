@@ -31,7 +31,7 @@ public class UserDao {
       // do something
       getSession().save(user);
       tx.commit();
-    } catch (Exception exp) {
+    } catch (org.hibernate.TransactionException exp) {
       tx.rollback();
       // close session
     }
