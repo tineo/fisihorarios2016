@@ -70,4 +70,34 @@ public class MainController {
     mv.setViewName("aulas");
     return mv;
   }
+
+  @RequestMapping(value="/docente", method=RequestMethod.GET)
+  @ResponseBody
+  public ModelAndView docente(ModelAndView mv) {
+    //mv.addObject("currentDate", new Date());
+    //mv.addObject("writers", writer.getWriters());
+
+    mv.setViewName("docente");
+    return mv;
+  }
+
+  @RequestMapping(value="/disponibilidad", method=RequestMethod.GET)
+  @ResponseBody
+  public ModelAndView disponibilidad(ModelAndView mv) {
+    //mv.addObject("currentDate", new Date());
+    //mv.addObject("writers", writer.getWriters());
+
+    mv.setViewName("disponibilidad");
+    return mv;
+  }
+
+  @RequestMapping(value="/armado", method=RequestMethod.GET)
+  @ResponseBody
+  public ModelAndView armado(ModelAndView mv) {
+    //mv.addObject("currentDate", new Date());
+    //mv.addObject("writers", writer.getWriters());
+
+    mv.setViewName("armado");
+    return mv;
+  }
 }

@@ -30,8 +30,11 @@
 
 
 
-<li class="nav-item  ">
-  <a href="javascript:;" class="nav-link nav-toggle">
+<li xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" class="nav-item  ">
+  <a th:href="@{/aulas}" class="nav-link nav-toggle">
     <i class="icon-home"></i>
     <span class="title">Gestion Aulas</span>
     <!--<span class="arrow"></span>-->
@@ -46,22 +49,31 @@
   </ul>-->
 </li>
 
-<li class="nav-item  ">
-    <a href="#" class="nav-link nav-toggle">
+<li xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" class="nav-item">
+    <a th:href="@{/docente}" class="nav-link nav-toggle">
         <i class="icon-clock"></i>
         <span class="title">Disponibilidad Docentes</span>
     </a>
 </li>
 
-<li class="nav-item  ">
-    <a href="#" class="nav-link nav-toggle">
+<li xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" class="nav-item  ">
+    <a th:href="@{/armado}" class="nav-link nav-toggle">
         <i class="icon-calendar"></i>
         <span class="title">Armado de Horarios</span>
     </a>
 </li>
 
-<li class="nav-item  ">
-    <a href="#" class="nav-link nav-toggle">
+<li xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" class="nav-item  ">
+    <a th:href="@{/master}" class="nav-link nav-toggle">
         <i class="icon-docs"></i>
         <span class="title">Reportes</span>
     </a>
