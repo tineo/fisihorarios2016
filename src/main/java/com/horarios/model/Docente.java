@@ -1,10 +1,6 @@
 package com.horarios.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -14,7 +10,8 @@ public class Docente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    //@Column(name = "iddocente")
+    private int iddocente;
 
     @NotNull
     private String nombres;
@@ -30,7 +27,7 @@ public class Docente {
     public Docente() {
     }
     public Docente(int id) {
-        this.id = id;
+        this.iddocente = id;
     }
 
     public Docente(String nombres, String apellidos, String limfisica, String correo, String telefono) {
@@ -42,11 +39,11 @@ public class Docente {
     }
 
     public int getId() {
-        return id;
+        return iddocente;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.iddocente = id;
     }
 
     public String getNombres() {
