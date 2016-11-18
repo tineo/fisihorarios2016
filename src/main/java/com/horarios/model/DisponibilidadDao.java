@@ -24,4 +24,8 @@ public class DisponibilidadDao {
         getSession().save(disponibilidad);
         return;
     }
+    public void  detele (Disponibilidad disponibilidad){
+        getSession().delete(disponibilidad);
+        return;
+    }
 }
