@@ -27,4 +27,8 @@ public class DocenteDao {
         return;
     }
 
+    public void  detele (Docente docente){
+        getSession().delete(docente);
+        return;
+    }
 }
