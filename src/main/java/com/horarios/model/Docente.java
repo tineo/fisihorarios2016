@@ -24,6 +24,7 @@ public class Docente {
     @NotNull
     private String telefono;
 
+    //constructor
     public Docente() {
     }
     public Docente(int id) {
@@ -38,6 +39,7 @@ public class Docente {
         this.telefono = telefono;
     }
 
+    //getter and setter
     public int getId() {
         return iddocente;
     }
