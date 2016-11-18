@@ -1,10 +1,7 @@
 package com.horarios.controller;
 
-import com.horarios.model.User;
-import com.horarios.model.UserDao;
+import com.horarios.model.*;
 
-import com.horarios.model.Usuario;
-import com.horarios.model.UsuarioDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Controller;
@@ -20,6 +17,12 @@ public class UsuarioController {
 
     @Autowired
     private UsuarioDao _usuarioDao;
+
+    @Autowired
+    private DisponibilidadDao _disponibilidadDao;
+
+    @Autowired
+    private DocenteDao _docenteDao;
 
     @RequestMapping(value = "/delete")
     @ResponseBody
@@ -47,7 +50,7 @@ public class UsuarioController {
             usuario.setEstado(1);
             usuario.setEmail("abcggmal");
             usuario.setTelefono("numero");
-            _usuarioDao.update(usuario);
+            //_usuarioDao.update(usuario);
 
 
         }
@@ -70,6 +73,38 @@ public class UsuarioController {
             usuario.setEmail("abcggmal");
             usuario.setTelefono("numero");
             _usuarioDao.save(usuario);
+
+
+        }
+        catch (Exception e){
+            return e.getMessage();
+
+        }
+        return "guardado papa :v ";
+    }
+
+    @RequestMapping(value = "/test")
+    @ResponseBody
+    public  String test(){
+        try{
+            Docente docente = new Docente();
+
+            docente.setApellidos("Tineo");
+            docente.setCorreo("tineo@live.jp");
+            docente.setLimfisica("Si");
+            docente.setTelefono("996666567");
+            docente.setNombres("Cesar");
+
+            _docenteDao.save(docente);
+
+            Disponibilidad disponibilidad = new Disponibilidad();
+            disponibilidad.setIddocente(docente);
+            disponibilidad.setCiclo("2016-2");
+            disponibilidad.setHorafinal("final");
+            disponibilidad.setHorainicio("inicio");
+            disponibilidad.setDia("miercoles");
+
+            _disponibilidadDao.save(disponibilidad);
 
 
         }

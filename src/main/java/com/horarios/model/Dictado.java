@@ -16,10 +16,10 @@ public class Dictado {
     private int iddocente;
 
 
-    @NotNull
-    @ManyToOne
-    @JoinColumn(name = "idasignatura")
-    private int idasignatura;
+    //@NotNull
+    //@ManyToOne
+    //@JoinColumn(name = "idasignatura")
+    //private int idasignatura;
 
 
 }

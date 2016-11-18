@@ -11,7 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-@Table (name="disponibilida")
+@Table (name="disponibilidad")
 public class Disponibilidad {
 
     @Id
@@ -21,7 +21,7 @@ public class Disponibilidad {
     @NotNull
     @ManyToOne
     @JoinColumn(name = "iddocente")
-    private int iddocente;
+    private Docente iddocente;
 
     @NotNull
     private String horainicio;
@@ -34,11 +34,10 @@ public class Disponibilidad {
 
     public Disponibilidad() {
     }
-    public Disponibilidad(int id) {
-        this.iddocente = id;
-    }
 
-    public Disponibilidad(int iddocente, String horainicio, String horafinal, String dia, String ciclo) {
+    /*public Disponibilidad(int id) { this.iddocente = id; }*/
+
+    public Disponibilidad(Docente iddocente, String horainicio, String horafinal, String dia, String ciclo) {
         this.iddocente = iddocente;
         this.horainicio = horainicio;
         this.horafinal = horafinal;
@@ -54,11 +53,11 @@ public class Disponibilidad {
         this.iddisponibilidad = iddisponibilidad;
     }
 
-    public int getIddocente() {
+    public Docente getIddocente() {
         return iddocente;
     }
 
-    public void setIddocente(int iddocente) {
+    public void setIddocente(Docente iddocente) {
         this.iddocente = iddocente;
     }
 
