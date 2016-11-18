@@ -37,7 +37,7 @@ public class UsuarioController {
         }
         return "ya lo botamos papu!";
     }
-    @RequestMapping(value = "/update")
+   /* @RequestMapping(value = "/update")
     @ResponseBody
     public  String update(){
         try{
@@ -58,7 +58,7 @@ public class UsuarioController {
             return e.getMessage();
         }
         return "cambiado beibi";
-    }
+    }*/
     @RequestMapping(value = "/save")
     @ResponseBody
     public  String create(){

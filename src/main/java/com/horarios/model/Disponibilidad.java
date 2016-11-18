@@ -32,10 +32,12 @@ public class Disponibilidad {
     @NotNull
     private String ciclo;
 
+    //constructor
     public Disponibilidad() {
     }
-
-    /*public Disponibilidad(int id) { this.iddocente = id; }*/
+    public Disponibilidad(int id) {
+        this.iddisponibilidad = id;
+    }
 
     public Disponibilidad(Docente iddocente, String horainicio, String horafinal, String dia, String ciclo) {
         this.iddocente = iddocente;
@@ -45,6 +47,7 @@ public class Disponibilidad {
         this.ciclo = ciclo;
     }
 
+    //getter and setter
     public int getIddisponibilidad() {
         return iddisponibilidad;
     }

@@ -34,6 +34,7 @@ public class Usuario {
     @NotNull
     private String telefono;
 
+    //constructor
     public Usuario() {}
     public Usuario(int id) {
         this.id = id;
@@ -51,6 +52,7 @@ public class Usuario {
 
     }
 
+    //getter and setter
     public int getId() {
         return id;
     }

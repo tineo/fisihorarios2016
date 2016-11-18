@@ -35,6 +35,7 @@ public class Asignatura {
     @NotNull
     private int horaslaboratorio;
 
+    //constructor
     public Asignatura() {
     }
     public Asignatura(int idasignatura) {
@@ -54,6 +55,7 @@ public class Asignatura {
         this.horaslaboratorio = horaslaboratorio;
     }
 
+    //getter and setter
     public int getIdasignatura() {
         return idasignatura;
     }
