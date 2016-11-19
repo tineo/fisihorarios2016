@@ -23,7 +23,7 @@ public class Aula {
     @NotNull
     private String pizarra;
     @NotNull
-    private String proyecto;
+    private String proyector;
     @NotNull
     private String audio;
     @NotNull
@@ -47,7 +47,7 @@ public class Aula {
         this.nroaula = nroaula;
         this.aforomax = aforomax;
         this.pizarra = pizarra;
-        this.proyecto = proyecto;
+        this.proyector = proyecto;
         this.audio = audio;
         this.ecram = ecram;
         this.equipopc = equipopc;
@@ -88,12 +88,12 @@ public class Aula {
         this.pizarra = pizarra;
     }
 
-    public String getProyecto() {
-        return proyecto;
+    public String getProyector() {
+        return proyector;
     }
 
-    public void setProyecto(String proyecto) {
-        this.proyecto = proyecto;
+    public void setProyector(String proyecto) {
+        this.proyector = proyecto;
     }
 
     public String getAudio() {
