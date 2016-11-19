@@ -8,8 +8,9 @@ import javax.validation.constraints.NotNull;
 public class Dictado {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name = "iddictado")
+    @GeneratedValue(strategy= GenerationType.AUTO)
+
     private int idDictado;
 
     @NotNull
