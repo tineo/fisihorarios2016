@@ -29,6 +29,10 @@ public class UsuarioDao {
         getSession().delete(usuario);
         return;
     }
+    public void update(Usuario usuario) {
+        getSession().update(usuario);
+        return;
+    }
   /*  public void update (Usuario usuario){
         usuario.setNombre("ews");
         (Usuario) getSession().createQuery(
