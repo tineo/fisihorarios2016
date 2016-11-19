@@ -17,6 +17,8 @@ public class DisponibilidadController {
 
     @Autowired
     private DisponibilidadDao _DisponibilidadDao;
+    @Autowired
+    private DocenteDao _DocenteDao;
 
     @RequestMapping(value = "/delete")
     @ResponseBody
@@ -36,10 +38,10 @@ public class DisponibilidadController {
     @ResponseBody
     public  String create(){
         try{
-            DocenteDao docenteDao =new DocenteDao();
+
             Docente docente= new Docente();
-            docente=null;
-            docente =docenteDao.getById(4);
+
+            docente =_DocenteDao.getById(4);
 
 
 

@@ -15,17 +15,27 @@ public class AulaDao {
     @Autowired
     private SessionFactory _SessionFactory;
 
-    private Session getSession(){return  _SessionFactory.getCurrentSession();}
+    private Session getSession() {
+        return _SessionFactory.getCurrentSession();
+    }
 
-    public void save(Aula aula){
+    public void save(Aula aula) {
         getSession().save(aula);
         return;
     }
 
-    public void  detele (Aula aula){
-        getSession().delete(aula);
+    public void detele(Aula aula) {
+        getSession().delete(getSession().get(Aula.class, aula.getIdaula()));
         return;
-
     }
 
+    public Aula getById(int id) {
+        Aula a = new Aula();
+
+        a = (Aula) getSession().load(Aula.class, id);
+
+
+        return a;
+
+    }
 }

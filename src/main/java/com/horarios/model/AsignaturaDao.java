@@ -15,17 +15,24 @@ public class AsignaturaDao {
     @Autowired
     private SessionFactory _SessionFactory;
 
-    private Session getSession(){return  _SessionFactory.getCurrentSession();}
+    private Session getSession() {
+        return _SessionFactory.getCurrentSession();
+    }
 
-    public void save(Asignatura asignatura){
+    public void save(Asignatura asignatura) {
         getSession().save(asignatura);
         return;
     }
 
-    public void  detele (Asignatura asignatura){
-        getSession().delete(asignatura);
+    public void detele(Asignatura asignatura) {
+        getSession().delete(getSession().get(Asignatura.class, asignatura.getIdasignatura()));
         return;
 
     }
 
+    public Asignatura getById(int id) {
+        Asignatura a = new Asignatura();
+        a = (Asignatura) getSession().load(Asignatura.class, id);
+                return a;
+    }
 }

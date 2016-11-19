@@ -20,7 +20,7 @@ public class DictadoDao {
         return;
     }
 
-    public void  detele (Dictado dictado){
+    public void  delete (Dictado dictado){
         getSession().delete(dictado);
         return;
 
