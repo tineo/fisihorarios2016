@@ -23,6 +23,8 @@ public class Dictado {
     @JoinColumn(name = "idasignatura")
     private Asignatura idasignatura;
 
+
+
     //constructor
     public Dictado() {
     }
@@ -34,6 +36,7 @@ public class Dictado {
     public Dictado(Docente iddocente, Asignatura idasignatura) {
         this.iddocente = iddocente;
         this.idasignatura = idasignatura;
+
     }
 
     public int getIdDictado() {
@@ -59,4 +62,7 @@ public class Dictado {
     public void setIdasignatura(Asignatura idasignatura) {
         this.idasignatura = idasignatura;
     }
+
+
+
 }
