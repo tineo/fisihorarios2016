@@ -3,6 +3,9 @@ package com.horarios.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table (name="docente")
@@ -23,6 +26,16 @@ public class Docente {
     private String correo;
     @NotNull
     private String telefono;
+
+    //private Set<Disponibilidad> disponibilidades = new HashSet<Disponibilidad>(0);
+
+    /*@OneToMany(fetch = FetchType.LAZY, orphanRemoval = true, mappedBy = "iddocente")
+    private Set<Disponibilidad> getDisponibilidades(){
+        return  this.disponibilidades;
+    }*/
+    @OneToMany(mappedBy="iddocente",cascade = CascadeType.ALL)
+    private List<Disponibilidad> disponibilidad;
+
 
     //constructor
     public Docente() {
