@@ -6,7 +6,9 @@ import javax.transaction.Transactional;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -27,15 +29,32 @@ public class UsuarioDao {
         getSession().delete(usuario);
         return;
     }
-   @SuppressWarnings("unchecked")
-    public List<Usuario> getAll() {
-        return getSession().createQuery("from Usuario").list();
+    public void update(Usuario usuario) {
+        getSession().update(usuario);
+        return;
     }
-   /* public  Usuario getByName (String nombres){
+  /*  public void update (Usuario usuario){
+        usuario.setNombre("ews");
+        (Usuario) getSession().createQuery(
+                "UPDATE Usuario set id = 1 "  +
+                        "WHERE nombres = :nombre")
+                .setParameter("nombres",usuario.getNombre())
+                .es();
+
+
+        getSession().update(usuario);
+
+    }
+ //  @SuppressWarnings("unchecked")
+  //  public List<Usuario> getAll() {
+    //    return getSession().createQuery("from Usuario").list();
+ //   }
+    public  Usuario getByName (String nombres){
         return (Usuario) getSession().createQuery(
                 "from Usuario where nombres = :nombres")
                 .setParameter("nombres", nombres)
                 .uniqueResult();
-    }
-*/
+    }*/
+
+
 }
