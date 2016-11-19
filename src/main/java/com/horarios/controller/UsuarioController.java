@@ -153,5 +153,29 @@ public class UsuarioController {
         return "guardado papa :v ";
     }
 
+  /*  @RequestMapping(value = "/update")
+    @ResponseBody
+    public  String update(){
+        try{
+            Usuario usuario =new Usuario();
+            usuario.setNombre("yona");
+            usuario.setApepaterno("lalo");
+            usuario.setApematerno("llamosa");
+            usuario.setUsername("dodo");
+            usuario.setPassword("frontier");
+            usuario.setEstado(1);
+            usuario.setEmail("abcggmal");
+            usuario.setTelefono("cel");
+            _usuarioDao.update(usuario);
+
+
+        }
+        catch (Exception e){
+            return e.getMessage();
+
+        }
+        return "guardado papa :v ";
+    }*/
+
 
 }
