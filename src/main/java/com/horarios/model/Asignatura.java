@@ -35,6 +35,9 @@ public class Asignatura {
     @OneToMany(mappedBy="idasignatura",cascade = CascadeType.ALL)
     private List<Curso> curso;
 
+    @OneToMany(mappedBy="idasignatura",cascade = CascadeType.ALL)
+    private List<Dictado> dictados;
+
     //constructor
     public Asignatura() {
     }
