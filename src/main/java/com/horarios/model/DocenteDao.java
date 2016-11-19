@@ -28,7 +28,8 @@ public class DocenteDao {
     }
 
     public void  detele (Docente docente){
-        getSession().delete(docente);
+        //getSession().delete(docente);
+        getSession().delete(getSession().get(Docente.class, docente.getId()));
         return;
     }
 }

@@ -106,6 +106,44 @@ public class UsuarioController {
 
             _disponibilidadDao.save(disponibilidad);
 
+            Disponibilidad disponibilidad2 = new Disponibilidad();
+            disponibilidad2.setIddocente(docente);
+            disponibilidad2.setCiclo("2016-2");
+            disponibilidad2.setHorafinal("final");
+            disponibilidad2.setHorainicio("inicio");
+            disponibilidad2.setDia("miercoles");
+
+            _disponibilidadDao.save(disponibilidad2);
+
+            Disponibilidad disponibilidad3 = new Disponibilidad();
+            disponibilidad3.setIddocente(docente);
+            disponibilidad3.setCiclo("2016-2");
+            disponibilidad3.setHorafinal("final");
+            disponibilidad3.setHorainicio("inicio");
+            disponibilidad3.setDia("miercoles");
+
+            _disponibilidadDao.save(disponibilidad3);
+
+
+        }
+        catch (Exception e){
+            return e.getMessage();
+
+        }
+        return "guardado papa :v ";
+    }
+
+    @RequestMapping(value = "/eliminar")
+    @ResponseBody
+    public  String eliminar(){
+        try{
+            Docente docente = new Docente();
+
+            docente.setId(1);
+
+            _docenteDao.detele(docente);
+
+
 
         }
         catch (Exception e){
