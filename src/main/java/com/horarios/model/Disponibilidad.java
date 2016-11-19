@@ -15,7 +15,7 @@ public class Disponibilidad {
     private int iddisponibilidad;
 
     @NotNull
-    @ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "iddocente")
     private Docente iddocente;
 

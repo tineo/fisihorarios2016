@@ -14,7 +14,7 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private int id;
+    private int idusuario;
 
     @NotNull
     private String nombres;
@@ -37,7 +37,7 @@ public class Usuario {
     //constructor
     public Usuario() {}
     public Usuario(int id) {
-        this.id = id;
+        this.idusuario = id;
     }
 
     public Usuario(String nombre, String apepaterno, String apematerno, String username, String password, int estado, String email, String telefono) {
@@ -54,11 +54,11 @@ public class Usuario {
 
     //getter and setter
     public int getId() {
-        return id;
+        return idusuario;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.idusuario = id;
     }
 
     public String getNombre() {

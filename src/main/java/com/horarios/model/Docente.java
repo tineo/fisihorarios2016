@@ -36,6 +36,12 @@ public class Docente {
     @OneToMany(mappedBy="iddocente",cascade = CascadeType.ALL)
     private List<Disponibilidad> disponibilidad;
 
+    @OneToMany(mappedBy="iddocente",cascade = CascadeType.ALL)
+    private List<Dictado> dictado;
+
+    @OneToMany(mappedBy="iddocente",cascade = CascadeType.ALL)
+    private List<Curso> curso;
+
 
     //constructor
     public Docente() {
@@ -100,4 +106,5 @@ public class Docente {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
+
 }
