@@ -32,6 +32,7 @@ public class UsuarioDao {
         return getSession().createQuery("from Usuario").list();
     }
 
+    @SuppressWarnings("unchecked")
     public Usuario findByUsername(String username) {
         return (Usuario) getSession().createQuery(
                 "from Usuario where username = :username")
