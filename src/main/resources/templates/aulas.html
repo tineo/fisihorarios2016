@@ -105,16 +105,14 @@
         <div class="page-bar">
           <ul class="page-breadcrumb">
             <li>
-              <a href="/">Home</a>
+              <a href="index.html">Home</a>
               <i class="fa fa-circle"></i>
             </li>
-            <!--<li>
-              <a href="#">Blank Page</a>
-              <i class="fa fa-circle"></i>
-            </li>-->
             <li>
-              <span>Disponibilidad Docente</span>
+              <a href="#">Gestion de Aulas</a>
+
             </li>
+
           </ul>
 
           <div class="page-toolbar" th:include="fragment/actionmenu"></div>
@@ -123,12 +121,11 @@
         </div>
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
-        <h1 class="page-title"> Disponibilidad Horario de Docente
-          <small></small>
+        <h1 class="page-title"> Gestion de Aulas
+          <!--<small>blank page layout</small>-->
         </h1>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
-
         <div class="row">
           <div class="col-md-12">
             <!-- BEGIN PORTLET-->
@@ -136,7 +133,7 @@
               <div class="portlet-title">
                 <div class="caption">
                   <i class="icon-social-dribbble font-green"></i>
-                  <span class="caption-subject font-green bold uppercase">Busqueda del docente</span>
+                  <span class="caption-subject font-green bold uppercase">Aula</span>
                 </div>
                 <!--<div class="actions">
                   <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
@@ -156,16 +153,172 @@
                   <div class="form-body">
 
                     <div class="form-group">
-                      <label class="control-label col-md-3">Codigo Docente</label>
+                      <label class="control-label col-md-3">Numero de aula</label>
                       <div class="col-md-4">
                         <div class="input-group" style="text-align:left">
                           <input type="text" class="form-control" name="username1" id="username1_input">
                           <span class="input-group-btn">
                             <a href="javascript:;" class="btn green" id="username1_checker">
-                              <i class="fa fa-check"></i> Buscar docente </a>
+                              <i class="fa fa-check"></i> Buscar aula </a>
                           </span>
                         </div>
-                        <div class="help-block"> Ingresar codigo del docente. </div>
+
+
+
+
+                        <!--<div class="help-block"> Ingresar numero de aula. </div>-->
+
+
+                      </div>
+                      <div class="col-md-4">
+                        <div class="input-group" style="text-align:left">
+                          <button class="control-label col-md-3" type="button" class="btn default">Ingresar aula</button>
+                        </div>
+                      </div>
+
+
+
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-12 ">
+            <div class="portlet box blue">
+              <div class="portlet-title">
+                <div class="caption">
+                  <i class="fa fa-gift"></i> Informacion del aula  </div>
+                <div class="tools">
+                  <a href="" class="collapse"> </a>
+                  <a href="#portlet-config" data-toggle="modal" class="config"> </a>
+                  <a href="" class="reload"> </a>
+                  <a href="" class="remove"> </a>
+                </div>
+              </div>
+              <div class="portlet-body form">
+                <form role="form" class="form-horizontal">
+                  <div class="form-body">
+                    <div class="row">
+                      <div class="col-md-6 ">
+                        <div class="form-group">
+                          <label class="col-md-4 control-label">Nro de aula</label>
+                          <div class="col-md-8">
+                            <div class="input-icon right">
+                              <i class="fa fa-info-circle tooltips" data-original-title="Email address" data-container="body"></i>
+                              <input type="text" class="form-control"> </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-4 control-label">Aforo max.</label>
+                          <div class="col-md-8">
+                            <div class="input-icon right">
+                              <i class="fa fa-info-circle tooltips" data-original-title="Email address" data-container="body"></i>
+                              <input type="text" class="form-control"> </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-4 control-label">Pizarra</label>
+                          <div class="col-md-8">
+
+                            <select class="form-control">
+                              <option>Si</option>
+                              <option>No</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-4 control-label">Proyector</label>
+                          <div class="col-md-8">
+
+                            <select class="form-control">
+                              <option>Si</option>
+                              <option>No</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-4 control-label">Audio</label>
+                          <div class="col-md-8">
+
+                            <select class="form-control">
+                              <option>Si</option>
+                              <option>No</option>
+                            </select>
+                          </div>
+                        </div>
+
+                      </div>
+
+                      <div class="col-md-6 ">
+                        <div class="form-group">
+                          <label class="col-md-4 control-label">Ecram</label>
+                          <div class="col-md-8">
+
+                            <select class="form-control">
+                              <option>Si</option>
+                              <option>No</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-4 control-label">Piso</label>
+                          <div class="col-md-8">
+
+                            <select class="form-control">
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-4 control-label">Ecram</label>
+                          <div class="col-md-8">
+
+                            <select class="form-control">
+                              <option>Si</option>
+                              <option>No</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-4 control-label">Nro de aula</label>
+                          <div class="col-md-8">
+                            <div class="input-icon right">
+                              <i class="fa fa-info-circle tooltips" data-original-title="Email address" data-container="body"></i>
+                              <input type="text" class="form-control"> </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-4 control-label">Estado</label>
+                          <div class="col-md-8">
+
+                            <select class="form-control">
+                              <option>Disponible</option>
+                              <option>No disponible</option>
+                            </select>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="form-actions">
+                    <div class="row">
+                      <div class="col-md-offset-4 col-md-8">
+                        <button type="button" class="btn default">Guardar</button>
+                        <button type="submit" class="btn blue">Editar</button>
                       </div>
                     </div>
                   </div>
@@ -174,94 +327,6 @@
             </div>
           </div>
         </div>
-
-
-
-        <div class="row">
-          <div class="col-md-12 ">
-            <!-- BEGIN SAMPLE FORM PORTLET-->
-            <div class="portlet light bordered">
-              <div class="portlet-title">
-                <div class="caption font-red-sunglo">
-                  <i class="icon-settings font-red-sunglo"></i>
-                  <span class="caption-subject bold uppercase"> Informacion del docente</span>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="portlet-body form">
-                  <form role="form">
-                    <div class="form-body">
-
-
-                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                        <div class="form-group">
-                          <label>Nombres y apellidos</label>
-                          <input type="text" class="form-control" placeholder="Cesar Gutierrez" readonly></div>
-                      </div>
-
-                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                        <div class="form-group">
-                          <label>Discapacidad fisica</label>
-                          <input type="text" class="form-control" placeholder="Si" readonly></div>
-                      </div>
-                      <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4">
-                        <div class="mt-element-card mt-element-overlay">
-
-                          <div class="mt-card-item">
-                            <div class="mt-card-avatar mt-overlay-1">
-                              <img th:src="@{/assets/pages/img/avatars/team1.jpg}" />
-                              <div class="mt-overlay">
-                                <ul class="mt-info">
-                                  <li>
-                                    <a class="btn default btn-outline" href="javascript:;">
-                                      <i class="icon-magnifier"></i>
-                                    </a>
-                                  </li>
-                                  <li>
-                                    <a class="btn default btn-outline" href="javascript:;">
-                                      <i class="icon-link"></i>
-                                    </a>
-                                  </li>
-                                </ul>
-                              </div>
-                            </div>
-                            <div class="mt-card-content">
-                              <h3 class="mt-card-name">Mark Anthony</h3>
-                              <p class="mt-card-desc font-grey-mint">Managing Director</p>
-
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-
-
-
-
-
-
-                    </div>
-
-
-
-
-
-                  </form>
-                </div>
-              </div>
-
-
-
-
-
-
-            </div>
-          </div>
-        </div>
-
-
-
 
       </div>
       <!-- END CONTENT BODY -->
