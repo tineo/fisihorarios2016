@@ -1,8 +1,5 @@
 package com.horarios.controller;
 
-import com.horarios.model.User;
-import com.horarios.model.UserDao;
-
 import com.horarios.model.Usuario;
 import com.horarios.model.UsuarioDao;
 import org.springframework.beans.factory.annotation.Autowired;

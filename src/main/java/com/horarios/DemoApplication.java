@@ -2,6 +2,7 @@ package com.horarios;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.*;
 import org.springframework.web.servlet.ModelAndView;
