@@ -64,14 +64,14 @@ public class UsuarioController {
     public  String create(){
         try{
             Usuario usuario =new Usuario();
-            usuario.setNombre("Debra");
+            usuario.setNombre("Yona");
             usuario.setApepaterno("chacaliaza");
             usuario.setApematerno("llamosa");
-            usuario.setUsername("unicornio");
-            usuario.setPassword("digimon");
-            usuario.setEstado(1);
-            usuario.setEmail("abcggmal");
-            usuario.setTelefono("numero");
+            usuario.setUsername("boombayah");
+            usuario.setPassword("oppa!!");
+            usuario.setEstado(0);
+            usuario.setEmail("debra@hotmail.com");
+            usuario.setTelefono("159632478");
             _usuarioDao.save(usuario);
 
 
@@ -83,7 +83,7 @@ public class UsuarioController {
         return "guardado papa :v ";
     }
 
-    @RequestMapping(value = "/test")
+   /* @RequestMapping(value = "/test")
     @ResponseBody
     public  String test(){
         try{
@@ -153,7 +153,7 @@ public class UsuarioController {
         return "guardado papa :v ";
     }
 
-  /*  @RequestMapping(value = "/update")
+    @RequestMapping(value = "/update")
     @ResponseBody
     public  String update(){
         try{
