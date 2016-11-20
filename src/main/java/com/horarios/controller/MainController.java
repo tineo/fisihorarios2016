@@ -41,7 +41,7 @@ public class MainController {
     return "Hola cosa post!";
   }
 
-  @RequestMapping(value="/login", method=RequestMethod.GET)
+  @RequestMapping(value="/login")
   @ResponseBody
   public ModelAndView login(ModelAndView mv) {
     //mv.addObject("currentDate", new Date());
