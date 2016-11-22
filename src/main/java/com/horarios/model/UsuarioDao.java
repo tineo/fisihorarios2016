@@ -5,10 +5,7 @@ import java.util.List;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
-import org.hibernate.SQLQuery;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.hibernate.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -65,11 +62,11 @@ public class UsuarioDao {
       getSession().close();
 */
 
-   //   getSession().getTransaction().begin();
+      //   getSession().getTransaction().begin();
 
- //     getSession().getTransaction().commit();
+      //     getSession().getTransaction().commit();
 
-
+/*
       try {
           final Transaction transaction = getSession().beginTransaction();
           try {
@@ -86,6 +83,14 @@ public class UsuarioDao {
           }
       } finally {
           getSession().close();
+      }
+  }*/
+      try {
+           getSession().update(usuario);
+
+      } catch (HibernateException he){
+          throw he;
+
       }
   }
 }

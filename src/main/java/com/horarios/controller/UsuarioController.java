@@ -67,7 +67,7 @@ public class UsuarioController {
             usuario.setNombre("Debra");
             usuario.setApepaterno("chacaliaza");
             usuario.setApematerno("llamosa");
-            usuario.setUsername("unicornio");
+            usuario.setUsername("moon");
             usuario.setPassword("digimon");
             usuario.setEstado(1);
             usuario.setEmail("abcggmal");
@@ -87,42 +87,8 @@ public class UsuarioController {
     @ResponseBody
     public  String test(){
         try{
-            Docente docente = new Docente();
-
-            docente.setApellidos("Tineo");
-            docente.setCorreo("tineo@live.jp");
-            docente.setLimfisica("Si");
-            docente.setTelefono("996666567");
-            docente.setNombres("Cesar");
-
-            _docenteDao.save(docente);
-
-            Disponibilidad disponibilidad = new Disponibilidad();
-            disponibilidad.setIddocente(docente);
-            disponibilidad.setCiclo("2016-2");
-            disponibilidad.setHorafinal("final");
-            disponibilidad.setHorainicio("inicio");
-            disponibilidad.setDia("miercoles");
-
-            _disponibilidadDao.save(disponibilidad);
-
-            Disponibilidad disponibilidad2 = new Disponibilidad();
-            disponibilidad2.setIddocente(docente);
-            disponibilidad2.setCiclo("2016-2");
-            disponibilidad2.setHorafinal("final");
-            disponibilidad2.setHorainicio("inicio");
-            disponibilidad2.setDia("miercoles");
-
-            _disponibilidadDao.save(disponibilidad2);
-
-            Disponibilidad disponibilidad3 = new Disponibilidad();
-            disponibilidad3.setIddocente(docente);
-            disponibilidad3.setCiclo("2016-2");
-            disponibilidad3.setHorafinal("final");
-            disponibilidad3.setHorainicio("inicio");
-            disponibilidad3.setDia("miercoles");
-
-            _disponibilidadDao.save(disponibilidad3);
+            Usuario usuario = _usuarioDao.getById(4);
+            String nombre =usuario.getNombre();
 
 
         }
@@ -130,7 +96,7 @@ public class UsuarioController {
             return e.getMessage();
 
         }
-        return "guardado papa :v ";
+        return "ya" ;
     }
 
     @RequestMapping(value = "/eliminar")
@@ -158,9 +124,9 @@ public class UsuarioController {
         try{
             Usuario usuario = _usuarioDao.getById(5);
 
-           /* usuario.setNombre("jisoo");
+            usuario.setNombre("jisoo");
             usuario.setApepaterno("kim");
-            usuario.setApematerno("sasa");*/
+            usuario.setApematerno("sasa");
             _usuarioDao.update(usuario);
         }
         catch (Exception e){

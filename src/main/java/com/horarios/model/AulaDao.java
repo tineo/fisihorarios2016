@@ -40,13 +40,32 @@ public class AulaDao {
         return a;
 
     }
-    public List<Aula> getAula(String nroaula) {
+    public List<Aula> getAula() {
+        List<Aula> listaAulas = null;
 
-        return (List<Aula>) getSession().createQuery(
+        try {
+            listaAulas = getSession().createQuery("from Aula").list();
+        }finally {
+            getSession().close();
+        }
+
+        return listaAulas;
+
+       /* return (List<Aula>) getSession().createQuery(
                 "from Aula a  where a.nroaula = :nroaula")
                 .setParameter("nroaula", nroaula);
-        // .uniqueResult();
+         .uniqueResult();
+*/
+    }
+
+       public Aula getAulaByNroaula(String nroaula) {
+
+        return (Aula) getSession().createQuery(
+                "from Aula a  where a.nroaula = :nroaula")
+                .setParameter("nroaula", nroaula)
+                     .uniqueResult();
 
     }
+
 
 }

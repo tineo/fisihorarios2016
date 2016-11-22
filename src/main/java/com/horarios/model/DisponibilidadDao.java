@@ -7,6 +7,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 
 @Repository
 @Transactional
@@ -26,4 +28,12 @@ public class DisponibilidadDao {
         getSession().delete(disponibilidad);
         return;
     }
+
+   public void saveList(List<Disponibilidad> lista_dispo){
+       for(Disponibilidad disponibilidad : lista_dispo) {
+           getSession().save(lista_dispo);
+       }
+       return;
+   }
+
 }
