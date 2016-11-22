@@ -2,10 +2,13 @@ package com.horarios.model;
 
 import java.util.List;
 
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -27,6 +30,8 @@ public class UsuarioDao {
         getSession().delete(usuario);
         return;
     }
+
+
    @SuppressWarnings("unchecked")
     public List<Usuario> getAll() {
         return getSession().createQuery("from Usuario").list();
@@ -40,11 +45,47 @@ public class UsuarioDao {
                 .uniqueResult();
 
     }
-   /* public  Usuario getByName (String nombres){
+    public Usuario getById(int id) {
+        return (Usuario) getSession().load(Usuario.class, id);
+    }
+
+
+  /*  public  Usuario getByName (String nombres){
         return (Usuario) getSession().createQuery(
                 "from Usuario where nombres = :nombres")
                 .setParameter("nombres", nombres)
                 .uniqueResult();
     }
 */
+  public void  update(Usuario usuario) {
+
+     /* getSession().beginTransaction();
+      getSession().update(usuario);
+      getSession().getTransaction().commit();
+      getSession().close();
+*/
+
+   //   getSession().getTransaction().begin();
+
+ //     getSession().getTransaction().commit();
+
+
+      try {
+          final Transaction transaction = getSession().beginTransaction();
+          try {
+              // The real work is here  :V :,v :v :v.....
+              SQLQuery query = getSession().createSQLQuery("update usuario  set nombres = :nombres" + " where idusuario = :idusuario");
+              query.setParameter("nombres", "Jack");
+              query.setParameter("idusuario", usuario.getId());
+              int result = query.executeUpdate();
+              transaction.commit();
+          } catch (Exception ex) {
+              // Log the exception here :v
+              transaction.rollback();
+              throw ex;
+          }
+      } finally {
+          getSession().close();
+      }
+  }
 }

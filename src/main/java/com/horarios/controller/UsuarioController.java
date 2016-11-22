@@ -152,8 +152,25 @@ public class UsuarioController {
         }
         return "guardado papa :v ";
     }
+    @RequestMapping(value = "/update")
+    @ResponseBody
+    public  String update(){
+        try{
+            Usuario usuario = _usuarioDao.getById(5);
 
-  /*  @RequestMapping(value = "/update")
+           /* usuario.setNombre("jisoo");
+            usuario.setApepaterno("kim");
+            usuario.setApematerno("sasa");*/
+            _usuarioDao.update(usuario);
+        }
+        catch (Exception e){
+            return e.getMessage();
+
+        }
+        return "cambiado papa :v ";
+    }
+
+ /*  @RequestMapping(value = "/update")
     @ResponseBody
     public  String update(){
         try{

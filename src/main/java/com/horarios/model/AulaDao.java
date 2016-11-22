@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 @Transactional
 public class AulaDao {
@@ -38,4 +40,13 @@ public class AulaDao {
         return a;
 
     }
+    public List<Aula> getAula(String nroaula) {
+
+        return (List<Aula>) getSession().createQuery(
+                "from Aula a  where a.nroaula = :nroaula")
+                .setParameter("nroaula", nroaula);
+        // .uniqueResult();
+
+    }
+
 }

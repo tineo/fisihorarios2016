@@ -26,7 +26,7 @@ public class Disponibilidad {
     @NotNull
     private String dia;
     @NotNull
-    private String ciclo;
+    private String periodo;
 
     //constructor
     public Disponibilidad() {
@@ -35,12 +35,12 @@ public class Disponibilidad {
         this.iddisponibilidad = id;
     }
 
-    public Disponibilidad(Docente iddocente, String horainicio, String horafinal, String dia, String ciclo) {
+    public Disponibilidad(Docente iddocente, String horainicio, String horafinal, String dia, String periodo) {
         this.iddocente = iddocente;
         this.horainicio = horainicio;
         this.horafinal = horafinal;
         this.dia = dia;
-        this.ciclo = ciclo;
+        this.periodo = periodo;
     }
 
     //getter and setter
@@ -85,10 +85,10 @@ public class Disponibilidad {
     }
 
     public String getCiclo() {
-        return ciclo;
+        return periodo;
     }
 
     public void setCiclo(String ciclo) {
-        this.ciclo = ciclo;
+        this.periodo = ciclo;
     }
 }

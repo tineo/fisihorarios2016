@@ -8,6 +8,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import javax.persistence.*;
+import java.util.List;
+
 /**
  * Created by Debra on 17/11/2016.
  */
@@ -39,17 +41,28 @@ public class DocenteDao {
 
                d= (Docente) getSession().load(Docente.class, id);
 
-       // return (Docente) getSession().load(Docente.class, id);
+
        return d;
     }
 
-    /*  public Docente getByEmail(int id) {
+      public Docente getByEmail(int id) {
 
          return (Docente) getSession().createQuery(
                  "from Docente d  where d.iddocente = :iddocente")
                  .setParameter("iddocente", id)
                  .uniqueResult();
      }
+
+     public List<Docente> getDocente(String codigo) {
+
+         return (List<Docente>) getSession().createQuery(
+                 "from Docente d  where d.codigo = :codigo")
+                 .setParameter("codigo", codigo);
+         // .uniqueResult();
+
+     }
+
+     /*
    public Docente getById(int iddocente) {
        Session session = null;
        Docente docente = null;
