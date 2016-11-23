@@ -135,6 +135,7 @@ UNLOCK TABLES;
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
 INSERT INTO `usuario` VALUES (1,'Debra','chacaliaza','llamosa','unicornio','digimon',1,'abcggmal','123456789'),(2,'Maria','mato','ramirez','caballo','digimon',1,'abcggmal','951234786'),(3,'Juan','martines','llamosa','unicornio5','digimon',1,'abcggmal','159632478'),(4,'Pedro','oyola','llamosa','unicornio8','2145',1,'abcggmal','21876225'),(5,'jisoo','kim','sasa','caba','147852369',1,'abcggmal','155431543'),(6,'Cesar','Lupe','Pardave','lalisa','125s',1,'a@ad','31543549'),(7,'Debra','Borges','Boalños','nona','2335',2,'abcggmal','123456799'),(8,'Kathy','obama','Cabo','sempay','digimon',0,'abcggmal','28569713'),(9,'Eli','Romero','Cuadreo','loli','digimon',2,'abcggmal','17461234'),(10,'Eli','Chan','Chan','baymax','gerson',0,'abcggmal','187648753'),(11,'Debra','chacaliaza','llamosa','moon','digimon',1,'abcggmal','numero');
+INSERT INTO usuario (nombres, apepaterno, apematerno, username, password, estado, email, telefono) VALUES ('Cesar', 'Gutierrez', 'Tineo', 'tineo', '123456', 1, '1', '1');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
