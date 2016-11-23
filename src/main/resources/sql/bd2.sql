@@ -70,6 +70,8 @@ CREATE TABLE IF NOT EXISTS `horarios`.`docente` (
   `correo` VARCHAR(45) NOT NULL,
   `telefono` VARCHAR(45) NOT NULL,
   `codigo` VARCHAR(45) NOT NULL,
+  `maxhoras` INT NOT NULL,
+  `usadashoras` INT NOT NULL
   PRIMARY KEY (`iddocente`))
 ENGINE = InnoDB;
 
