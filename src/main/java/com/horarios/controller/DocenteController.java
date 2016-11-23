@@ -1,13 +1,12 @@
 package com.horarios.controller;
 
-import com.horarios.model.*;
+import com.horarios.model.Docente;
+import com.horarios.model.DocenteDao;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 
 @Controller
 @RequestMapping(value = "/docente")
@@ -51,5 +50,19 @@ public class DocenteController {
 
         }
         return "guardado el profe papa :v ";
+    }
+
+    @RequestMapping(value = "/getdocente")
+    @ResponseBody
+    public Docente getdocente(@RequestParam(value="codigo", defaultValue = "101") String codigo ){
+        Docente docente =  null;
+        try {
+            docente =  _docenteDao.getDocenteByCodigo(codigo);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+        return docente;
     }
 }
