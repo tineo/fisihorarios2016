@@ -33,15 +33,16 @@ public class AsignaturaDao {
     }
 
     public Asignatura getById(int id) {
-        Asignatura a = new Asignatura();
-        a = (Asignatura) getSession().load(Asignatura.class, id);
+        Asignatura a = (Asignatura) getSession().createQuery(
+                "from Asignatura where idasignatura = :idasignatura"
+        ).setParameter("idasignatura",id).uniqueResult();
                 return a;
     }
     public List<Asignatura> getAsignaturas(String coinsidencia) {
 
         return (List<Asignatura>) getSession().createQuery(
                 "from Asignatura a  where a.nombre like :coinsidencia")
-                .setParameter("%"+ "coinsidencia", coinsidencia+"%");
+                .setParameter("coinsidencia","%"+  coinsidencia+"%").list();
         // .uniqueResult();
 
     }
@@ -49,6 +50,6 @@ public class AsignaturaDao {
         return (List<Asignatura>) getSession().createQuery(
                 "from Asignatura a where a.ciclo= :ciclo and a.plan =:plan")
                 .setParameter("ciclo", ciclo)
-                .setParameter("plan", plan);
+                .setParameter("plan", plan).list();
     }
 }

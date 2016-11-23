@@ -41,17 +41,19 @@ public class DisponibilidadController {
 
             Docente docente= new Docente();
 
-            docente =_DocenteDao.getById(4);
-
-
+            docente =_DocenteDao.getById(1);
 
             Disponibilidad disponibilidad = new Disponibilidad();
             disponibilidad.setIddocente(docente);
             disponibilidad.setCiclo("2016-2");
-            disponibilidad.setHorafinal("final");
-            disponibilidad.setHorainicio("inicio");
+            disponibilidad.setHorafinal("2:00pm");
+            disponibilidad.setHorainicio("8:00am ");
             disponibilidad.setDia("martes");
             _DisponibilidadDao.save(disponibilidad);
+
+
+
+
 
 
         }

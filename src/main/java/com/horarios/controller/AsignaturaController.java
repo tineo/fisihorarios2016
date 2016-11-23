@@ -37,17 +37,18 @@ public class AsignaturaController {
     public  String create(){
         try{
             Asignatura asignatura =new Asignatura();
-            asignatura.setCodigo("A102");
-            asignatura.setNombre("Calculo1");
+            asignatura.setCodigo("2020101");
+            asignatura.setNombre("Base de Datos");
             asignatura.setHoras(5);
-            asignatura.setCiclo("primero");
-            asignatura.setPlan("2015");
-            asignatura.setCreditos("cuatro");
+            asignatura.setCiclo("cuarto");
+            asignatura.setPlan("2009");
+            asignatura.setCreditos("quinto");
             asignatura.setEstado(1);
             asignatura.setHoraspractica(2);
             asignatura.setHorasteoria(3);
             asignatura.setHoraslaboratorio(0);
             _asignaturaDao.save(asignatura);
+            
 
 
         }

@@ -34,13 +34,15 @@ public class DocenteController {
         try{
             Docente docente = new Docente();
 
-            docente.setApellidos("Tineo");
-            docente.setCorreo("tineo@live.jp");
-            docente.setLimfisica("Si");
+            docente.setApellidos("CASTILLO JIMENEZ");
+            docente.setCodigo("21034571");
+            docente.setCorreo("EMILIO@gmail.com");
+            docente.setLimfisica("No");
             docente.setTelefono("996666567");
-            docente.setNombres("Cesar");
+            docente.setNombres("EMILIO");
 
             _docenteDao.save(docente);
+            
 
 
         }

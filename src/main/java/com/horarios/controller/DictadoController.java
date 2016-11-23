@@ -39,7 +39,7 @@ public class DictadoController {
        try{
 
             Docente docente= new Docente();
-            docente =_DocenteDao.getById(4);
+            docente =_DocenteDao.getById(1);
 
             Asignatura asignatura =new Asignatura();
             asignatura = _AsignaturaDao.getById(1);
@@ -49,7 +49,8 @@ public class DictadoController {
             dictado.setIdasignatura(asignatura);
 
 
-           _DictadoDao.save(dictado);
+
+
 
 
         }
