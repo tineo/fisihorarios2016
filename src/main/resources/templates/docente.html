@@ -197,13 +197,13 @@
                       <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
                         <div class="form-group">
                           <label>Nombres y apellidos</label>
-                          <input type="text" class="form-control"
-                                 placeholder="Kim Ji Soo" readonly></div>
+                          <input type="text" class="form-control" id="nya"
+                                 readonly></div>
 
                         <div class="form-group">
                           <label>Discapacidad fisica</label>
-                          <input type="text" class="form-control"
-                                 placeholder="Si" readonly></div>
+                          <input type="text" class="form-control" id="df"
+                                  readonly></div>
                       </div>
 
 
@@ -281,12 +281,7 @@
                       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                         <div class="form-group">
                           <label>Cursos</label>
-                          <select class="form-control">
-                            <option>Option 1</option>
-                            <option>Option 2</option>
-                            <option>Option 3</option>
-                            <option>Option 4</option>
-                            <option>Option 5</option>
+                          <select class="form-control" id="cursosdis">
                           </select>
                           </div>
 
@@ -302,7 +297,7 @@
                       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                         <div class="form-group">
                           <label>Limite de horas a dictar:</label>
-                          <input type="text" class="form-control" placeholder="">
+                          <input type="text" class="form-control" id="limi" readonly>
                         </div>
 
                       </div>
@@ -443,25 +438,49 @@
 <!-- END THEME LAYOUT SCRIPTS -->
 
 <script type="text/javascript">
-  $("#infodocente").hide();
-  $("#cursosdocente").hide();
-  
-  $("#buscar").click(function () {
-    var codigo = $("#codigo").val();
+    $("#infodocente").hide();
+    $("#cursosdocente").hide();
 
-    $.ajax({
-      method: "GET",
-      url: "/docente/getdocente",
-      data: { codigo: codigo }
-    }).done(function( response ) {
+    $("#buscar").click(function () {
+        var codigo = $("#codigo").val();
+        console.log(codigo);
 
-      console.log(response);
+        $.ajax({
+            method: "GET",
+            url: "/docente/getdocente",
+            data: {codigo: codigo}
+        }).done(function (response) {
+            console.log(response);
+            if(response == ""){
 
-    });
-  })
+            }else{
+                $("#infodocente").show();
+                $("#cursosdocente").show();
+                $("#nya").val(response.nombres+" "+response.apellidos);
+                $("#df").val(response.limfisica);
+                $("#limi").val(response.maxhoras);
+
+                $.ajax({
+                    method: "GET",
+                    url: "/asignatura/getasignatura",
+                    data: {ciclo: "primero",plan:"2015"}
+                }).done(function (responsea) {
+                    console.log(responsea);
+                    var select = document.getElementById('cursosdis');
+                    for (i = 0; i < responsea.length; i++) {
+                        var opt = document.createElement('option');
+                        opt.value = i;
+                        opt.innerHTML = responsea[i].nombre;
+                        select.appendChild(opt);
+                    }
+                })
+            }
+        });
+
+
+    })
 
 </script>
-
 
 
 </body>

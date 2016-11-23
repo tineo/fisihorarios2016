@@ -72,7 +72,7 @@ public class AsignaturaController {
 
     @RequestMapping(value = "/getasignatura")
     @ResponseBody
-    public List<Asignatura> getAsigByCicloNPlan(@RequestParam(value="ciclo", defaultValue = "1") String ciclo,
+    public List<Asignatura> getAsigByCicloNPlan(@RequestParam(value="ciclo", defaultValue = "primero") String ciclo,
                                                 @RequestParam(value="plan", defaultValue = "2009") String plan){
         List<Asignatura> ListAsig =  null;
         try {
