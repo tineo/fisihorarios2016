@@ -2,10 +2,7 @@ package com.horarios.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table (name="docente")
@@ -28,6 +25,11 @@ public class Docente {
     private String telefono;
     @NotNull
     private String codigo;
+    @NotNull
+    private int maxhoras;
+    @NotNull
+    private int usadashoras;
+
 
     //private Set<Disponibilidad> disponibilidades = new HashSet<Disponibilidad>(0);
 
@@ -116,5 +118,21 @@ public class Docente {
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
+    }
+
+    public int getMaxhoras() {
+        return maxhoras;
+    }
+
+    public void setMaxhoras(int maxhoras) {
+        this.maxhoras = maxhoras;
+    }
+
+    public int getUsadashoras() {
+        return usadashoras;
+    }
+
+    public void setUsadashoras(int usadashoras) {
+        this.usadashoras = usadashoras;
     }
 }
