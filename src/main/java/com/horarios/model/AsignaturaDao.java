@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 @Transactional
 public class AsignaturaDao {
@@ -34,5 +36,19 @@ public class AsignaturaDao {
         Asignatura a = new Asignatura();
         a = (Asignatura) getSession().load(Asignatura.class, id);
                 return a;
+    }
+    public List<Asignatura> getAsignaturas(String coinsidencia) {
+
+        return (List<Asignatura>) getSession().createQuery(
+                "from Asignatura a  where a.nombre like :coinsidencia")
+                .setParameter("%"+ "coinsidencia", coinsidencia+"%");
+        // .uniqueResult();
+
+    }
+    public  List<Asignatura> getAsignaturasByCicloAndPlan(String ciclo, String plan){
+        return (List<Asignatura>) getSession().createQuery(
+                "from Asignatura a where a.ciclo= :ciclo and a.plan =:plan")
+                .setParameter("ciclo", ciclo)
+                .setParameter("plan", plan);
     }
 }

@@ -26,6 +26,8 @@ public class Docente {
     private String correo;
     @NotNull
     private String telefono;
+    @NotNull
+    private String codigo;
 
     //private Set<Disponibilidad> disponibilidades = new HashSet<Disponibilidad>(0);
 
@@ -50,12 +52,13 @@ public class Docente {
         this.iddocente = id;
     }
 
-    public Docente(String nombres, String apellidos, String limfisica, String correo, String telefono) {
+    public Docente(String nombres, String apellidos, String limfisica, String correo, String telefono, String codigo) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.limfisica = limfisica;
         this.correo = correo;
         this.telefono = telefono;
+        this.codigo = codigo;
     }
 
     //getter and setter
@@ -107,4 +110,11 @@ public class Docente {
         this.telefono = telefono;
     }
 
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
 }
