@@ -30,20 +30,24 @@ public class Curso {
     @NotNull
     private String horafinal;
     @NotNull
+    private String dia;
+    @NotNull
     private String seccion;
+
 
 
     //constructor
     public Curso() {
     }
 
-    public Curso(Docente iddocente, Asignatura idasignatura, Aula idaula, String horainicio, String horafinal, String seccion) {
+    public Curso(Docente iddocente, Asignatura idasignatura, Aula idaula, String horainicio, String horafinal, String seccion, String dia) {
         this.iddocente = iddocente;
         this.idasignatura = idasignatura;
         this.idaula = idaula;
         this.horainicio = horainicio;
         this.horafinal = horafinal;
         this.seccion = seccion;
+        this.dia =dia;
     }
     public Curso(int id) {
         this.idcurso = id;
@@ -104,5 +108,13 @@ public class Curso {
 
     public void setSeccion(String seccion) {
         this.seccion = seccion;
+    }
+
+    public String getDia() {
+        return dia;
+    }
+
+    public void setDia(String dia) {
+        this.dia = dia;
     }
 }

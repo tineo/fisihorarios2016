@@ -127,6 +127,7 @@ public class UsuarioController {
             usuario.setNombre("jisoo");
             usuario.setApepaterno("kim");
             usuario.setApematerno("sasa");
+            usuario.setPassword("147852369");
             _usuarioDao.update(usuario);
         }
         catch (Exception e){

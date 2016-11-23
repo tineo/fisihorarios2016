@@ -31,10 +31,13 @@ public class AulaDao {
         return;
     }
 
-    public Aula getById(int id) {
-        Aula a = new Aula();
+    public Aula getById(int idaula) {
+        Aula a = (Aula) getSession().createQuery(
+                "from  Aula where idaula = :idaula" )
+                .setParameter("idaula",idaula)
+                .uniqueResult();
 
-        a = (Aula) getSession().load(Aula.class, id);
+
 
 
         return a;

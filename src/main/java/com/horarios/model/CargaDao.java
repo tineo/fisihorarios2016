@@ -29,6 +29,13 @@ public class CargaDao {
         return;
 
     }
+    public Carga getById(int idcarga) {
+        Carga c = (Carga) getSession().createQuery(
+                "from  Carga where idcarga = : idcarga")
+                .setParameter("idcarga", idcarga)
+                .uniqueResult();
+        return c;
+    }
 
     public List<Carga> getListaCarga() {
         List<Carga> listaCargas = null;

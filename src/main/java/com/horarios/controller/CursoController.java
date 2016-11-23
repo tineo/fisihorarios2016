@@ -53,10 +53,8 @@ public class CursoController {
             curso.setIdaula(aula);
             curso.setHorainicio("8:00am");
             curso.setHorafinal("1:00pm");
+            curso.setDia("lunes");
             curso.setSeccion("g1");
-
-
-
 
             _CursoDao.save(curso);
 

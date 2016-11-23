@@ -36,20 +36,21 @@ public class DocenteDao {
         return;
     }
 
-  public Docente getById(int id) {
-        Docente d =new Docente();
-
-               d= (Docente) getSession().load(Docente.class, id);
+  public Docente getById(int iddocente) {
+        Docente d =(Docente) getSession().createQuery(
+                "from  Docente where iddocente = :iddocente")
+                .setParameter("iddocente",  iddocente)
+                .uniqueResult();
 
 
        return d;
     }
 
-      public Docente getByEmail(int id) {
+      public Docente getByCodigo(String codigo) {
 
          return (Docente) getSession().createQuery(
-                 "from Docente d  where d.iddocente = :iddocente")
-                 .setParameter("iddocente", id)
+                 "from Docente d  where d.codigo = :codigo")
+                 .setParameter("codigo", codigo)
                  .uniqueResult();
      }
 

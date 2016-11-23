@@ -43,7 +43,12 @@ public class UsuarioDao {
 
     }
     public Usuario getById(int id) {
-        return (Usuario) getSession().load(Usuario.class, id);
+        Usuario usuario = (Usuario)getSession().createQuery(
+                "from Usuario where idusuario = :idusuario")
+                .setParameter("idusuario", id)
+                .uniqueResult();
+        //return (Usuario) getSession().load(Usuario.class, id);
+        return usuario;
     }
 
 
@@ -56,35 +61,7 @@ public class UsuarioDao {
 */
   public void  update(Usuario usuario) {
 
-     /* getSession().beginTransaction();
-      getSession().update(usuario);
-      getSession().getTransaction().commit();
-      getSession().close();
-*/
 
-      //   getSession().getTransaction().begin();
-
-      //     getSession().getTransaction().commit();
-
-/*
-      try {
-          final Transaction transaction = getSession().beginTransaction();
-          try {
-              // The real work is here  :V :,v :v :v.....
-              SQLQuery query = getSession().createSQLQuery("update usuario  set nombres = :nombres" + " where idusuario = :idusuario");
-              query.setParameter("nombres", "Jack");
-              query.setParameter("idusuario", usuario.getId());
-              int result = query.executeUpdate();
-              transaction.commit();
-          } catch (Exception ex) {
-              // Log the exception here :v
-              transaction.rollback();
-              throw ex;
-          }
-      } finally {
-          getSession().close();
-      }
-  }*/
       try {
            getSession().update(usuario);
 
