@@ -31,7 +31,27 @@ UNLOCK TABLES;
 
 LOCK TABLES `aula` WRITE;
 /*!40000 ALTER TABLE `aula` DISABLE KEYS */;
-INSERT INTO `aula` VALUES (1,'102','40','disponible','disponible','disponible','disponible','disponible','primero','1'),(2,'204','32','disponible','disponible','disponible','disponible','disponible','segundo','1'),(3,'302','30','disponible','disponible','disponible','disponible','disponible','tercero','2'),(4,'209','50','disponible','disponible','disponible','disponible','disponible','segundo','1'),(5,'206','35','disponible','disponible','disponible','disponible','disponible','segundo','1'),(6,'307','30','disponible','disponible','disponible','disponible','disponible','tercero','2'),(7,'105','35','disponible','disponible','no disponible','disponible','disponible','primero','1'),(8,'106','35','disponible','disponible','disponible','disponible','disponible','primero','0'),(9,'108','30','disponible','disponible','disponible','disponible','disponible','primero','1'),(10,'204','35','disponible','no disponible','no disponible','no disponible','disponible','segundo','1'),(11,'201','40','disponible','disponible','disponible','disponible','disponible','segundo','1'),(12,'202','45','disponible','disponible','disponible','disponible','no disponible','segundo','2'),(13,'203','35','disponible','disponible','disponible','no disponible','disponible','segundo','1'),(14,'205','35','disponible','disponible','disponible','disponible','disponible','segundo','0'),(15,'207','50','disponible','disponible','no disponible','disponible','disponible','segundo','1'),(16,'102','40','disponible','disponible','disponible','disponible','no disponible','primer','2'),(17,'104','40','no disponible','disponible','disponible','no disponible','disponible','primer','1'),(18,'105','40','disponible','disponible','disponible','disponible','disponible','primer','0'),(19,'108','40','disponible','no disponible','disponible','disponible','no disponible','primer','1'),(20,'110','40','disponible','disponible','disponible','disponible','disponible','primer','1');
+INSERT INTO horarios.aula (nroaula, aforomax, pizarra, proyector, audio, ecram, equipopc, nivel, estado)
+VALUES ('102', '40', 'disponible', 'disponible', 'disponible', 'disponible', 'disponible', 'primero', '1')
+  ,('208', '32', 'disponible', 'disponible', 'disponible', 'disponible', 'disponible', 'segundo', '1')
+  ,('302', '30', 'disponible', 'disponible', 'disponible', 'disponible', 'disponible', 'tercero', '0')
+  ,('209', '50', 'disponible', 'disponible', 'disponible', 'disponible', 'disponible', 'segundo', '1')
+  ,('206', '35', 'disponible', 'disponible', 'disponible', 'disponible', 'disponible', 'segundo', '1')
+  ,('307', '30', 'disponible', 'disponible', 'disponible', 'disponible', 'disponible', 'tercero', '0')
+  ,('103', '35', 'disponible', 'disponible', 'no disponible', 'disponible', 'disponible', 'primero', '1')
+  ,('106', '35', 'disponible', 'disponible', 'disponible', 'disponible', 'disponible', 'primero', '0')
+  ,('108', '30', 'disponible', 'disponible', 'disponible', 'disponible', 'disponible', 'primero', '1')
+  ,('204', '35', 'disponible', 'no disponible', 'no disponible', 'no disponible', 'disponible', 'segundo', '1')
+  ,('201', '40', 'disponible', 'disponible', 'disponible', 'disponible', 'disponible', 'segundo', '1')
+  ,('202', '45', 'disponible', 'disponible', 'disponible', 'disponible', 'no disponible', 'segundo', '0')
+  ,('203', '35', 'disponible', 'disponible', 'disponible', 'no disponible', 'disponible', 'segundo', '1')
+  ,('205', '35', 'disponible', 'disponible', 'disponible', 'disponible', 'disponible', 'segundo', '0')
+  ,('207', '50', 'disponible', 'disponible', 'no disponible', 'disponible', 'disponible', 'segundo', '1')
+  ,('101', '40', 'disponible', 'disponible', 'disponible', 'disponible', 'no disponible', 'primer', '0')
+  ,('104', '40', 'no disponible', 'disponible', 'disponible', 'no disponible', 'disponible', 'primer', '1')
+  ,('105', '40', 'disponible', 'disponible', 'disponible', 'disponible', 'disponible', 'primer', '0')
+  ,('109', '40', 'disponible', 'no disponible', 'disponible', 'disponible', 'no disponible', 'primer', '1')
+  ,('110', '40', 'disponible', 'disponible', 'disponible', 'disponible', 'disponible', 'primer', '1');
 /*!40000 ALTER TABLE `aula` ENABLE KEYS */;
 UNLOCK TABLES;
 
