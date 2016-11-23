@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -20,48 +21,30 @@ public class DisponibilidadController {
     @Autowired
     private DocenteDao _DocenteDao;
 
-    @RequestMapping(value = "/delete")
-    @ResponseBody
-    public String delete(){
-        try {
-            Disponibilidad disponibilidad = new Disponibilidad();
-            disponibilidad.setIddisponibilidad(5);
-            _DisponibilidadDao.detele(disponibilidad);
-        }
-        catch (Exception e){
-            return e.getMessage();
-        }
-        return "ya lo botamos papu!";
-    }
-
     @RequestMapping(value = "/save")
     @ResponseBody
-    public  String create(){
+    public  String create(@RequestParam(value="iddocente", defaultValue = "1") String iddocente,
+                          @RequestParam(value="ciclo", defaultValue = "1") String ciclo,
+                          @RequestParam(value="horainicial", defaultValue = "1") String horainicial,
+                          @RequestParam(value="horafinal", defaultValue = "1") String horafinal,
+                          @RequestParam(value="dia", defaultValue = "1") String dia){
         try{
-
             Docente docente= new Docente();
 
-            docente =_DocenteDao.getById(1);
+            docente =_DocenteDao.getById(Integer.parseInt(iddocente));
 
             Disponibilidad disponibilidad = new Disponibilidad();
             disponibilidad.setIddocente(docente);
-            disponibilidad.setCiclo("2016-2");
-            disponibilidad.setHorafinal("2:00pm");
-            disponibilidad.setHorainicio("8:00am ");
-            disponibilidad.setDia("martes");
+            disponibilidad.setCiclo(ciclo);
+            disponibilidad.setHorafinal(horafinal);
+            disponibilidad.setHorainicio(horainicial);
+            disponibilidad.setDia(dia);
             _DisponibilidadDao.save(disponibilidad);
-
-
-
-
-
-
         }
         catch (Exception e){
             return e.getMessage();
-
         }
-        return "guardado papa :v ";
+        return "Guardado";
     }
 
 }

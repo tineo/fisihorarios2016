@@ -14,12 +14,13 @@ public class DocenteController {
 
     @Autowired
     private DocenteDao _docenteDao;
+ /*
     @RequestMapping(value = "/delete")
     @ResponseBody
-    public String delete(){
+    public String delete(@RequestParam(value="codigo", defaultValue = "101") String codigo){
         try {
             Docente docente = new Docente();
-            docente.setId(2);
+            docente.setId(Integer.parseInt(codigo));
             _docenteDao.detele(docente);
         }
         catch (Exception e){
@@ -41,9 +42,6 @@ public class DocenteController {
             docente.setNombres("EMILIO");
 
             _docenteDao.save(docente);
-            
-
-
         }
         catch (Exception e){
             return e.getMessage();
@@ -51,10 +49,10 @@ public class DocenteController {
         }
         return "guardado el profe papa :v ";
     }
-
+*/
     @RequestMapping(value = "/getdocente")
     @ResponseBody
-    public Docente getdocente(@RequestParam(value="codigo", defaultValue = "101") String codigo ){
+    public Docente getdocente(@RequestParam(value="codigo", defaultValue = "101") String codigo){
         Docente docente =  null;
         try {
             docente =  _docenteDao.getDocenteByCodigo(codigo);

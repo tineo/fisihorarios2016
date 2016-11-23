@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class AulaController {
     @Autowired
     private AulaDao _aulaDao;
-
+/*
     @RequestMapping(value = "/delete")
     @ResponseBody
-    public String delete(){
+    public String delete(@RequestParam(value="numaula", defaultValue = "101") String numaula){
         try {
              Aula aula = new Aula();
             aula.setIdaula(1);
@@ -24,7 +24,7 @@ public class AulaController {
             return e.getMessage();
         }
         return "Aula Destruida";
-    }
+    }*/
 
     @RequestMapping(value = "/save")
     @ResponseBody
@@ -69,4 +69,6 @@ public class AulaController {
         }
         return aula;
     }
+
+    //UPDATE AULA
 }

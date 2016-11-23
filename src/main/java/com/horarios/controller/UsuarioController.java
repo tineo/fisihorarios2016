@@ -35,7 +35,7 @@ public class UsuarioController {
         catch (Exception e){
             return e.getMessage();
         }
-        return "ya lo botamos papu!";
+        return "Borrado";
     }
    /* @RequestMapping(value = "/update")
     @ResponseBody
@@ -73,12 +73,9 @@ public class UsuarioController {
             usuario.setEmail("abcggmal");
             usuario.setTelefono("numero");
             _usuarioDao.save(usuario);
-
-
         }
         catch (Exception e){
             return e.getMessage();
-
         }
         return "guardado papa :v ";
     }
@@ -89,12 +86,9 @@ public class UsuarioController {
         try{
             Usuario usuario = _usuarioDao.getById(4);
             String nombre =usuario.getNombre();
-
-
         }
         catch (Exception e){
             return e.getMessage();
-
         }
         return "ya" ;
     }
@@ -104,19 +98,13 @@ public class UsuarioController {
     public  String eliminar(){
         try{
             Docente docente = new Docente();
-
             docente.setId(1);
-
             _docenteDao.detele(docente);
-
-
-
         }
         catch (Exception e){
             return e.getMessage();
-
         }
-        return "guardado papa :v ";
+        return "eliminado";
     }
     @RequestMapping(value = "/update")
     @ResponseBody

@@ -8,6 +8,7 @@ import com.horarios.model.CargaDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -15,20 +16,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class CargaController {
     @Autowired
     private CargaDao _CargaDao;
-    @RequestMapping(value = "/save")
+
+    @RequestMapping(value = "/getcarga")
     @ResponseBody
-    public  String create(){
-        try{
-            Carga carga =new Carga();
-
-            _CargaDao.save(carga);
-
-
+    public Carga getaula(@RequestParam(value="idasig", defaultValue = "101") int idasig ){
+        Carga carga =  null;
+        try {
+            carga = _CargaDao.getByIdAsig(idasig);
         }
         catch (Exception e){
-            return e.getMessage();
-
+            e.printStackTrace();
+            return null;
         }
-        return "guardado papa :v ";
+        return carga;
     }
 }

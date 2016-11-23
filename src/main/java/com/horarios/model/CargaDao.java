@@ -18,7 +18,7 @@ public class CargaDao {
     private Session getSession() {
         return _SessionFactory.getCurrentSession();
     }
-
+/*
     public void save(Carga carga) {
         getSession().save(carga);
         return;
@@ -28,15 +28,15 @@ public class CargaDao {
         getSession().delete(carga);
         return;
 
-    }
-    public Carga getById(int idcarga) {
+    }*/
+    public Carga getByIdAsig(int idasignatura) {
         Carga c = (Carga) getSession().createQuery(
-                "from  Carga where idcarga = : idcarga")
-                .setParameter("idcarga", idcarga)
+                "from  Carga where idasignatura = : idasignatura")
+                .setParameter("idasignatura", idasignatura)
                 .uniqueResult();
         return c;
     }
-
+/*
     public List<Carga> getListaCarga() {
         List<Carga> listaCargas = null;
 
@@ -48,5 +48,5 @@ public class CargaDao {
 
         return listaCargas;
 
-    }
+    }*/
 }
