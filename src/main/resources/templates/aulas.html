@@ -156,9 +156,9 @@
                       <label class="control-label col-md-3">Numero de aula</label>
                       <div class="col-md-4">
                         <div class="input-group" style="text-align:left">
-                          <input type="text" class="form-control" name="username1" id="username1_input">
+                          <input type="text" class="form-control" name="username1" id="numaula">
                           <span class="input-group-btn">
-                            <a href="javascript:;" class="btn green" id="username1_checker">
+                            <a href="javascript:;" class="btn green" id="buscar_aula">
                               <i class="fa fa-check"></i> Buscar aula </a>
                           </span>
                         </div>
@@ -172,7 +172,9 @@
                       </div>
                       <div class="col-md-4">
                         <div class="input-group" style="text-align:left">
-                          <button class="control-label col-md-3" type="button" class="btn default">Ingresar aula</button>
+                          <!--<button class="control-label col-md-3"
+                                  type="button" class="btn default"
+                          id="ingresar">Ingresar aula</button>-->
                         </div>
                       </div>
 
@@ -215,7 +217,7 @@
                           <div class="col-md-8">
                             <div class="input-icon right">
                               <i class="fa fa-info-circle tooltips" data-original-title="Email address" data-container="body"></i>
-                              <input type="text" class="form-control"> </div>
+                              <input type="text" class="form-control" id="numero"> </div>
                           </div>
                         </div>
                         <div class="form-group">
@@ -223,16 +225,16 @@
                           <div class="col-md-8">
                             <div class="input-icon right">
                               <i class="fa fa-info-circle tooltips" data-original-title="Email address" data-container="body"></i>
-                              <input type="text" class="form-control"> </div>
+                              <input type="text" class="form-control"  id="aforo"> </div>
                           </div>
                         </div>
                         <div class="form-group">
-                          <label class="col-md-4 control-label">Pizarra</label>
+                          <label class="col-md-4 control-label" >Pizarra</label>
                           <div class="col-md-8">
 
-                            <select class="form-control">
-                              <option>Si</option>
-                              <option>No</option>
+                            <select class="form-control" id="pizarra">
+                              <option value="disponible">Si</option>
+                              <option value="no disponible">No</option>
                             </select>
                           </div>
                         </div>
@@ -240,9 +242,9 @@
                           <label class="col-md-4 control-label">Proyector</label>
                           <div class="col-md-8">
 
-                            <select class="form-control">
-                              <option>Si</option>
-                              <option>No</option>
+                            <select class="form-control" id="proyector">
+                                <option value="disponible">Si</option>
+                                <option value="no disponible">No</option>
                             </select>
                           </div>
                         </div>
@@ -250,9 +252,9 @@
                           <label class="col-md-4 control-label">Audio</label>
                           <div class="col-md-8">
 
-                            <select class="form-control">
-                              <option>Si</option>
-                              <option>No</option>
+                            <select class="form-control"  id="audio">
+                                <option value="disponible">Si</option>
+                                <option value="no disponible">No</option>
                             </select>
                           </div>
                         </div>
@@ -264,48 +266,38 @@
                           <label class="col-md-4 control-label">Ecram</label>
                           <div class="col-md-8">
 
-                            <select class="form-control">
-                              <option>Si</option>
-                              <option>No</option>
+                            <select class="form-control"  id="ecram">
+                                <option value="disponible">Si</option>
+                                <option value="no disponible">No</option>
                             </select>
                           </div>
                         </div>
+
                         <div class="form-group">
-                          <label class="col-md-4 control-label">Piso</label>
+                          <label class="col-md-4 control-label">Equipo/PC</label>
                           <div class="col-md-8">
 
-                            <select class="form-control">
-                              <option>1</option>
-                              <option>2</option>
-                              <option>3</option>
+                            <select class="form-control"  id="pc">
+                                <option value="disponible">Si</option>
+                                <option value="no disponible">No</option>
                             </select>
                           </div>
                         </div>
                         <div class="form-group">
-                          <label class="col-md-4 control-label">Ecram</label>
-                          <div class="col-md-8">
-
-                            <select class="form-control">
-                              <option>Si</option>
-                              <option>No</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label class="col-md-4 control-label">Nro de aula</label>
+                          <label class="col-md-4 control-label">Nivel</label>
                           <div class="col-md-8">
                             <div class="input-icon right">
                               <i class="fa fa-info-circle tooltips" data-original-title="Email address" data-container="body"></i>
-                              <input type="text" class="form-control"> </div>
+                              <input type="text" class="form-control"  id="nivel"> </div>
                           </div>
                         </div>
                         <div class="form-group">
                           <label class="col-md-4 control-label">Estado</label>
                           <div class="col-md-8">
 
-                            <select class="form-control">
-                              <option>Disponible</option>
-                              <option>No disponible</option>
+                            <select class="form-control" id="estado">
+                                <option value="disponible">Disponible</option>
+                                <option value="no disponible">No disponible</option>
                             </select>
                           </div>
                         </div>
@@ -317,8 +309,8 @@
                   <div class="form-actions">
                     <div class="row">
                       <div class="col-md-offset-4 col-md-8">
-                        <button type="button" class="btn default">Guardar</button>
-                        <button type="submit" class="btn blue">Editar</button>
+                        <button type="button" class="btn default" disabled="disabled" id="guardar">Guardar</button>
+                        <button type="button" class="btn blue" disabled="disabled" id="editar">Editar</button>
                       </div>
                     </div>
                   </div>
@@ -392,6 +384,126 @@
 <script th:src="@{/assets/layouts/layout/scripts/demo.min.js}" type="text/javascript"></script>
 <script th:src="@{/assets/layouts/global/scripts/quick-sidebar.min.js}" type="text/javascript"></script>
 <script th:src="@{/assets/layouts/global/scripts/quick-nav.min.js}" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+    $("#buscar_aula").click(function () {
+
+        var numaula = $("#numaula").val();
+        console.log(numaula);
+        $.ajax({
+            method: "GET",
+            url: "/aula/getaula",
+            data: { numaula: numaula }
+        }).done(function( response ) {
+            if(response == ""){
+                $("#numero").prop('disabled', false);
+                $("#aforo").prop('disabled', false);
+                $("#nivel").prop('disabled', false);
+                $("#pizarra").prop('disabled', false);
+                $("#audio").prop('disabled', false);
+                $("#ecram").prop('disabled', false);
+                $("#pizarra").prop('disabled', false);
+                $("#pc").prop('disabled', false);
+                $("#proyector").prop('disabled', false);
+                $("#estado").prop('disabled', false);
+
+                $("#numero").val("");
+                $("#aforo").val("");
+                $("#nivel").val("");
+                $("#pizarra").val("");
+                $("#audio").val("");
+                $("#ecram").val("");
+                $("#pizarra").val("");
+                $("#pc").val("");
+                $("#proyector").val("");
+                $("#estado").val("");
+
+                $("#guardar").prop('disabled', false);
+
+            }else{
+                $("#numero").val(response.nroaula);
+                $("#numero").prop('disabled', true);
+                $("#aforo").val(response.aforomax);
+                $("#aforo").prop('disabled', true);
+                $("#nivel").val(response.nivel);
+                $("#nivel").prop('disabled', true);
+
+                if(response.pizarra == "disponible"){
+                    $("#pizarra").val($("#pizarra option:first").val());
+                }else{
+                    $("#pizarra").val($("#pizarra option:last").val());
+                }
+                $("#pizarra").prop('disabled', true);
+
+                if(response.audio == "disponible"){
+                    $("#audio").val($("#audio option:first").val());
+                }else{
+                    $("#audio").val($("#audio option:last").val());
+                }
+                $("#audio").prop('disabled', true);
+
+                if(response.ecram == "disponible"){
+                    $("#ecram").val($("#ecram option:first").val());
+                }else{
+                    $("#ecram").val($("#ecram option:last").val());
+                }
+                $("#ecram").prop('disabled', true);
+
+                if(response.pizarra == "disponible"){
+                    $("#pizarra").val($("#pizarra option:first").val());
+                }else{
+                    $("#pizarra").val($("#pizarra option:last").val());
+                }
+                $("#pizarra").prop('disabled', true);
+
+                if(response.equipopc == "disponible"){
+                    $("#pc").val($("#pc option:first").val());
+                }else{
+                    $("#pc").val($("#pc option:last").val());
+                }
+                $("#pc").prop('disabled', true);
+
+                if(response.proyector == "disponible"){
+                    $("#proyector").val($("#proyector option:first").val());
+                }else{
+                    $("#proyector").val($("#proyector option:last").val());
+                }
+                $("#proyector").prop('disabled', true);
+
+                if(response.estado == 0){
+                    $("#estado").val($("#estado option:first").val());
+                }else{
+                    $("#estado").val($("#estado option:last").val());
+                }
+                $("#estado").prop('disabled', true);
+
+            }
+            $("#guardar").prop('disabled', true);
+            $("#editar").prop('disabled', false);
+            console.log(response);
+        });
+
+    });
+
+    $("#editar").click(function () {
+
+        $("#numero").prop('disabled', false);
+        $("#aforo").prop('disabled', false);
+        $("#nivel").prop('disabled', false);
+        $("#pizarra").prop('disabled', false);
+        $("#audio").prop('disabled', false);
+        $("#ecram").prop('disabled', false);
+        $("#pizarra").prop('disabled', false);
+        $("#pc").prop('disabled', false);
+        $("#proyector").prop('disabled', false);
+        $("#estado").prop('disabled', false);
+
+        $("#guardar").prop('disabled', false);
+
+    });
+</script>
+
 <!-- END THEME LAYOUT SCRIPTS -->
 </body>
 
