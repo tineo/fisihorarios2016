@@ -72,11 +72,10 @@ public class AsignaturaController {
 
     @RequestMapping(value = "/getasignatura")
     @ResponseBody
-    public List<Asignatura> getAsigByCicloNPlan(@RequestParam(value="ciclo", defaultValue = "primero") String ciclo,
-                                                @RequestParam(value="plan", defaultValue = "2009") String plan){
+    public List<Asignatura> getAsigByCicloNPlan(){
         List<Asignatura> ListAsig =  null;
         try {
-            ListAsig =  _asignaturaDao.getAsignaturasByCicloAndPlan(ciclo, plan);
+            ListAsig =  _asignaturaDao.getAsignatura();
         }
         catch (Exception e){
             e.printStackTrace();
@@ -84,5 +83,26 @@ public class AsignaturaController {
         }
         return ListAsig;
     }
+
+    @RequestMapping(value = "/listby")
+    @ResponseBody
+    public List<Asignatura> asignaturasByCicloAndPlan(
+            @RequestParam(value="ciclo", defaultValue = "101") String ciclo,
+            @RequestParam(value="plan", defaultValue = "101") String plan
+    ){
+        List<Asignatura> lista = null;
+        try {
+
+            lista = _asignaturaDao.getAsignaturasByCicloAndPlan(ciclo, plan);
+
+        }catch (Exception e){
+
+            System.out.println("error");
+            e.printStackTrace();
+            //return e.getMessage();
+        }
+        return lista;
+    }
+
 
 }

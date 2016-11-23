@@ -44,7 +44,7 @@ public class DictadoController {
             docente =_DocenteDao.getById(Integer.parseInt(iddocente));
 
             Asignatura asignatura =new Asignatura();
-            asignatura = _AsignaturaDao.getById(Integer.parseInt(idasignatura));
+            asignatura = _AsignaturaDao.getByCodigo((idasignatura));
 
             Dictado dictado= new Dictado();
             dictado.setIddocente(docente);

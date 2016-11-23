@@ -52,4 +52,17 @@ public class AsignaturaDao {
                 .setParameter("ciclo", ciclo)
                 .setParameter("plan", plan).list();
     }
+
+    public List<Asignatura> getAsignatura() {
+        return (List<Asignatura>) getSession().createQuery(
+                "from Asignatura a  ")
+                .list();
+    }
+
+    public Asignatura getByCodigo(String i) {
+        Asignatura a = (Asignatura) getSession().createQuery(
+                "from Asignatura where codigo = :codigo"
+        ).setParameter("codigo",i).uniqueResult();
+        return a;
+    }
 }

@@ -290,7 +290,7 @@
 
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                       <div class="form-group">
-                        <button type="button" class="btn default">Agregar</button>
+                        <button type="button" class="btn default" id="agregar">Agregar</button>
                       </div>
                     </div>
 
@@ -336,10 +336,10 @@
 
                           </tr>
                           </thead>
-                          <tbody>
+                          <tbody id="cursoslist">
 
 
-                          <tr>
+                          <!--<tr>
                             <td> 1 </td>
                             <td> Etica Profesional </td>
                             <td>
@@ -353,7 +353,7 @@
                             <td>
                               <span class="label label-sm label-success"> 20W0206 </span>
                             </td>
-                          </tr>
+                          </tr>-->
 
 
                           </tbody>
@@ -371,7 +371,7 @@
                   </div>
                   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="form-group">
-                      <button type="button" class="btn default">Guardar</button>
+                      <button type="button" class="btn default" id="guardar">Guardar</button>
                     </div>
                   </div>
                 </div>
@@ -469,7 +469,7 @@
                     var select = document.getElementById('cursosdis');
                     for (i = 0; i < responsea.length; i++) {
                         var opt = document.createElement('option');
-                        opt.value = i;
+                        opt.value = responsea[i].codigo;
                         opt.innerHTML = responsea[i].nombre;
                         select.appendChild(opt);
                     }
@@ -477,8 +477,52 @@
             }
         });
 
+      /*<tr>
+       <td> 2 </td>
+       <td> Creatividad y Liderazgo </td>
+       <td>
+       <span class="label label-sm label-success"> 20W0206 </span>
+       </td>
+       </tr>*/
 
-    })
+
+
+
+    });
+
+
+    $("#agregar").click(function () {
+      console.log($("#cursosdis").val());
+      //console.log($("#cursosdis").text());
+
+      console.log($("#cursosdis option:selected").text());
+
+      $("<tr><td> 1 </td><td> "+$("#cursosdis option:selected").text()+" </td>" +
+              "<td><span class='label label-sm label-success'> "+$("#cursosdis").val()+" </span></td></tr>")
+              .appendTo("#cursoslist");
+    });
+
+    $("#guardar").click(function () {
+      $("#cursoslist").find("tr").each(function (k,v) {
+        console.log(k);
+        console.log(v);
+
+        console.log($(v).find("span").text());
+
+        var codigo = $(v).find("span").text();
+
+        $.ajax({
+          method: "GET",
+          url: "/dictado/save",
+          data: {idasignatura: codigo , iddocente: $("#codigo").val()}
+        }).done(function (responsea) {
+          console.log(responsea);
+
+        })
+
+      });
+    });
+
 
 </script>
 

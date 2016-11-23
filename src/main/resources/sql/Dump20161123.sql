@@ -70,7 +70,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `curso` WRITE;
 /*!40000 ALTER TABLE `curso` DISABLE KEYS */;
-INSERT INTO `curso` VALUES (1,1,1,1,'2:00pm','7:00pm','g1','lunes'),(2,5,1,2,'2:00pm','7:00pm','g3','martes'),(3,8,4,3,'2:00pm','7:00pm','g2','jueves'),(4,5,6,4,'2:00pm','7:00pm','g1','viernes'),(5,7,2,5,'2:00pm','7:00pm','g2','sabado'),(6,2,3,6,'8:00pm','1:00pm','g3','jueves'),(7,5,1,1,'2:00pm','7:00pm','g1','lunes'),(8,5,1,1,'2:00pm','7:00pm','g1','lunes'),(9,5,1,1,'2:00pm','7:00pm','g1','lunes'),(10,5,1,1,'2:00pm','7:00pm','g1','lunes');
+-- INSERT INTO `curso` VALUES (1,1,1,1,'2:00pm','7:00pm','g1','lunes'),(2,5,1,2,'2:00pm','7:00pm','g3','martes'),(3,8,4,3,'2:00pm','7:00pm','g2','jueves'),(4,5,6,4,'2:00pm','7:00pm','g1','viernes'),(5,7,2,5,'2:00pm','7:00pm','g2','sabado'),(6,2,3,6,'8:00pm','1:00pm','g3','jueves'),(7,5,1,1,'2:00pm','7:00pm','g1','lunes'),(8,5,1,1,'2:00pm','7:00pm','g1','lunes'),(9,5,1,1,'2:00pm','7:00pm','g1','lunes'),(10,5,1,1,'2:00pm','7:00pm','g1','lunes');
 /*!40000 ALTER TABLE `curso` ENABLE KEYS */;
 UNLOCK TABLES;
 
