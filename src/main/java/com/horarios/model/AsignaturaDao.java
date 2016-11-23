@@ -49,4 +49,5 @@ public class AsignaturaDao {
                 .setParameter("ciclo", ciclo)
                 .setParameter("plan", plan).list();
     }
+
 }
