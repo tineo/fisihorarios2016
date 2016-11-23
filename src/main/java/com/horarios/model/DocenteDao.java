@@ -1,13 +1,11 @@
 package com.horarios.model;
 
-import javax.transaction.Transactional;
-
-import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import javax.persistence.*;
+
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
@@ -46,7 +44,7 @@ public class DocenteDao {
        return d;
     }
 
-      public Docente getByCodigo(String codigo) {
+      public Docente getDocenteByCodigo(String codigo) {
 
          return (Docente) getSession().createQuery(
                  "from Docente d  where d.codigo = :codigo")
@@ -62,6 +60,8 @@ public class DocenteDao {
          // .uniqueResult();
 
      }
+
+
 
      /*
    public Docente getById(int iddocente) {

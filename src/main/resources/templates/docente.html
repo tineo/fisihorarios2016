@@ -159,9 +159,9 @@
                       <label class="control-label col-md-3">Codigo Docente</label>
                       <div class="col-md-4">
                         <div class="input-group" style="text-align:left">
-                          <input type="text" class="form-control" name="username1" id="username1_input">
+                          <input type="text" class="form-control" name="username1" id="codigo">
                           <span class="input-group-btn">
-                            <a href="javascript:;" class="btn green" id="username1_checker">
+                            <a href="javascript:;" class="btn green" id="buscar">
                               <i class="fa fa-check"></i> Buscar docente </a>
                           </span>
                         </div>
@@ -177,7 +177,7 @@
 
 
 
-        <div class="row">
+        <div class="row" id="infodocente">
           <div class="col-md-12 ">
             <!-- BEGIN SAMPLE FORM PORTLET-->
             <div class="portlet light bordered">
@@ -263,7 +263,7 @@
         </div>
 
 
-        <div class="row">
+        <div class="row" id="cursosdocente">
           <div class="col-md-12 ">
             <!-- BEGIN SAMPLE FORM PORTLET-->
             <div class="portlet light bordered">
@@ -441,6 +441,29 @@
 <script th:src="@{/assets/layouts/global/scripts/quick-sidebar.min.js}" type="text/javascript"></script>
 <script th:src="@{/assets/layouts/global/scripts/quick-nav.min.js}" type="text/javascript"></script>
 <!-- END THEME LAYOUT SCRIPTS -->
+
+<script type="text/javascript">
+  $("#infodocente").hide();
+  $("#cursosdocente").hide();
+  
+  $("#buscar").click(function () {
+    var codigo = $("#codigo").val();
+
+    $.ajax({
+      method: "GET",
+      url: "/docente/getdocente",
+      data: { codigo: codigo }
+    }).done(function( response ) {
+
+      console.log(response);
+
+    });
+  })
+
+</script>
+
+
+
 </body>
 
 </html>
