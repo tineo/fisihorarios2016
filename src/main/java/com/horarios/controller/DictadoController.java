@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
@@ -21,44 +22,38 @@ public class DictadoController {
 
     @RequestMapping(value = "/delete")
     @ResponseBody
-    public String delete(){
+    public String delete(@RequestParam(value="iddictado", defaultValue = "1") String iddictado){
         try {
             Dictado dictado = new Dictado();
-            dictado.setIdDictado(1);
+            dictado.setIdDictado(Integer.parseInt(iddictado));
             _DictadoDao.delete(dictado);
         }
         catch (Exception e){
             return e.getMessage();
         }
-        return "ya lo botamos papu!";
+        return "Dictado Suprimido";
     }
 
    @RequestMapping(value = "/save")
     @ResponseBody
-    public  String create(){
+    public  String create(@RequestParam(value="iddocente", defaultValue = "1") String iddocente,
+                          @RequestParam(value="idasignatura", defaultValue = "1") String idasignatura){
        try{
 
             Docente docente= new Docente();
-            docente =_DocenteDao.getById(1);
+            docente =_DocenteDao.getById(Integer.parseInt(iddocente));
 
             Asignatura asignatura =new Asignatura();
-            asignatura = _AsignaturaDao.getById(1);
+            asignatura = _AsignaturaDao.getById(Integer.parseInt(idasignatura));
 
             Dictado dictado= new Dictado();
             dictado.setIddocente(docente);
             dictado.setIdasignatura(asignatura);
-
-
-
-
-
-
         }
         catch (Exception e){
             return e.getMessage();
-
         }
-        return "guardado papa :v ";
+        return "Guardado";
     }
 
 }

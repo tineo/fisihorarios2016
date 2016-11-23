@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 @Transactional
 public class CursoDao {
@@ -24,10 +26,17 @@ public class CursoDao {
         return;
     }
 
-    public void  detele (Curso curso ){
+    public void  delete (Curso curso ){
         getSession().delete(curso);
         return;
 
+    }
+
+    public List<Curso> getCursoByCicloAndPlan(String ciclo, String plan){
+        return (List<Curso>) getSession().createQuery(
+                "from Curso a where a.ciclo= :ciclo and a.plan =:plan")
+                .setParameter("ciclo", ciclo)
+                .setParameter("plan", plan).list();
     }
 
 }
