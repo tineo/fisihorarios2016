@@ -38,6 +38,95 @@
   <link th:href="@{/assets/layouts/layout/css/themes/darkblue.min.css}" rel="stylesheet" type="text/css" id="style_color" />
   <link th:href="@{/assets/layouts/layout/css/custom.min.css}" rel="stylesheet" type="text/css" />
   <!-- END THEME LAYOUT STYLES -->
+  <script th:src="@{/assets/global/plugins/jquery.min.js}" type="text/javascript"></script>
+  <script type="text/javascript">
+    $(function() {
+
+      // Handler for .ready() called.
+      $("#plan2009").click(function () {
+        //console.log(2009);
+      });
+      $("#plan2015").click(function () {
+        //console.log(2015);
+      });
+
+      var plan = 2009;
+      var ciclo = "primero";
+      var idciclo = 1;
+      $(".ciclo").click(function () {
+        //console.log(this);
+        //console.log($(this).attr("id"));
+        if($("#plan2009").hasClass("active")){
+          //console.log(2009);
+          plan = 2009;
+        }
+        if($("#plan2015").hasClass("active")){
+          //console.log(2015);
+          plan = 2015;
+        }
+
+        //console.log($(this).attr("id"));
+        switch ($(this).attr("id")){
+          case "ciclo1": ciclo = "primero"; idciclo = 1; break;
+          case "ciclo2": ciclo = "segundo"; idciclo = 2; break;
+          case "ciclo3": ciclo = "tercero"; idciclo = 3; break;
+          case "ciclo4": ciclo = "cuarto"; idciclo = 4; break;
+          case "ciclo5": ciclo = "quinto"; idciclo = 5; break;
+          case "ciclo6": ciclo = "sexto"; idciclo = 6; break;
+          case "ciclo7": ciclo = "septimo"; idciclo = 7; break;
+          case "ciclo8": ciclo = "octavo"; idciclo = 8; break;
+          case "ciclo9": ciclo = "noveno"; idciclo = 9; break;
+          case "ciclo10": ciclo = "decimo"; idciclo = 10; break;
+        }
+
+        $( "<label><div class='iradio_line-grey'><input class='icheck' " +
+                "data-label='TEORÍA GENERAL DE SISTEMAS (20W0107)' " +
+                "data-radio='iradio_line-grey' name='radio1' type='radio' style='position: absolute; opacity: 0;'>" +
+                "<div class='icheck_line-icon'></div>" +
+                "TEORÍA GENERAL DE SISTEMAS (20W0107)" +
+                "<ins class='iCheck-helper' " +
+                "style='position: absolute; top: 0%; left: 0%; display: block; " +
+                "width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; " +
+                "background: rgb(255, 255, 255);'></ins></div></label>" ).appendTo( "#asignaturas" + 1 );
+
+        $.ajax({
+          method: "GET",
+          url: "/asignatura/listby",
+          data: { ciclo : ciclo, plan: plan }
+        }).done(function( response ) {
+          //console.log(response);
+          //console.log("#asignaturas" + idciclo);
+          $( "#asignaturas" + idciclo ).empty();
+
+          for(var i = 0; i < response.length ; i++ ){
+            //console.log(response[i]);
+
+            $( "<label><div class='iradio_line-grey'><input class='icheck' " +
+                    "data-label='" + response[i].nombre + " ("+ response[i].codigo + ")"+ "' " +
+                    "data-radio='iradio_line-grey' name='radio"+response[i].codigo+"' type='radio' style='position: absolute; opacity: 0;'>" +
+                    "<div class='icheck_line-icon'></div>" +
+                    response[i].nombre.toUpperCase()+ " ("+ response[i].codigo +")"+
+                    "<ins class='iCheck-helper' " +
+                    "style='position: absolute; top: 0%; left: 0%; display: block; " +
+                    "width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; " +
+                    "background: rgb(255, 255, 255);'></ins></div></label>" ).appendTo( "#asignaturas" + idciclo );
+
+          }
+
+          //<label><input type="radio" name="radio1" class="icheck" data-radio="iradio_line-grey" data-label="INTRODUCCION A LA COMPUTACION (20W0101)"></label>
+
+
+        });
+
+
+      });
+
+
+
+
+    });
+  </script>
+
   <link rel="shortcut icon" href="favicon.ico" /> </head>
 <!-- END HEAD -->
 
@@ -155,9 +244,9 @@
                 </ul>-->
                 <div class="actions">
                   <div class="btn-group btn-group-devided" data-toggle="buttons">
-                    <label class="btn btn-circle btn-transparent grey-salsa btn-sm active">
+                    <label class="btn btn-circle btn-transparent grey-salsa btn-sm active" id="plan2009">
                       <input type="radio" name="options" class="toggle" id="option1">2009</label>
-                    <label class="btn btn-circle btn-transparent grey-salsa btn-sm">
+                    <label class="btn btn-circle btn-transparent grey-salsa btn-sm" id="plan2015">
                       <input type="radio" name="options" class="toggle" id="option2">2015</label>
                   </div>
                 </div>
@@ -179,7 +268,7 @@
                               </div>
                               <ul class="nav nav-tabs">
                                 <li th:each="i:${#numbers.sequence(1, 10)}">
-                                  <a data-toggle="tab" th:text="${'Ciclo '+ i}" th:href="${'#portlet_tab1'+ i}" >  </a>
+                                  <a data-toggle="tab" th:text="${'Ciclo '+ i}" th:id="${'ciclo'+ i}" th:href="${'#portlet_tab1'+ i}" class="ciclo">  </a>
                                 </li>
 
                                 <!--<li class="active">
@@ -216,19 +305,19 @@
                                         <div class="form-group">
 
                                                                         <div class="input-group">
-                                                                            <div class="icheck-list">
+                                                                            <div class="icheck-list" th:id="${ 'asignaturas'+ i  }">
 
 
 
 
 
-                                                                                    <label><input type="radio" name="radio1" class="icheck" data-radio="iradio_line-grey" data-label="INTRODUCCION A LA COMPUTACION (20W0101)"></label><label>
-                                                                                    <input type="radio" name="radio1" class="icheck" data-radio="iradio_line-grey" data-label="CALCULO I (20W0102)"></label><label>
+                                                                                    <!--<label><input type="radio" name="radio1" class="icheck" data-radio="iradio_line-grey" data-label="INTRODUCCION A LA COMPUTACION (20W0101)"></label>
+                                                                                    <label><input type="radio" name="radio1" class="icheck" data-radio="iradio_line-grey" data-label="CALCULO I (20W0102)"></label><label>
                                                                                     <input type="radio" name="radio1" class="icheck" data-radio="iradio_line-grey" data-label="ESTRATEGIAS DE APRENDIZAJE E INVESTIGACIÓN (20W0103)"></label><label>
                                                                                     <input type="radio" name="radio1" class="icheck" data-radio="iradio_line-grey" data-label="MATEMATICA BASICA I (20W0104)"></label><label>
                                                                                     <input type="radio" name="radio1" class="icheck" data-radio="iradio_line-grey" data-label="COMUNICACIÓN Y DINAMICA DE GRUPO (20W0105)"></label><label>
                                                                                     <input type="radio" name="radio1" class="icheck" data-radio="iradio_line-grey" data-label="ETICA DE LA PROFESIÓN (20W0106)"></label><label>
-                                                                                    <input type="radio" name="radio1" class="icheck" data-radio="iradio_line-grey" data-label="TEORÍA GENERAL DE SISTEMAS (20W0107)"></label>
+                                                                                    <input type="radio" name="radio1" class="icheck" data-radio="iradio_line-grey" data-label="TEORÍA GENERAL DE SISTEMAS (20W0107)"></label>-->
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -379,6 +468,8 @@
 <script th:src="@{/assets/layouts/global/scripts/quick-sidebar.min.js}" type="text/javascript"></script>
 <script th:src="@{/assets/layouts/global/scripts/quick-nav.min.js}" type="text/javascript"></script>
 <!-- END THEME LAYOUT SCRIPTS -->
+
+
 </body>
 
 </html>

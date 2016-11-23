@@ -2,15 +2,14 @@ package com.horarios.controller;
 
 import com.horarios.model.Asignatura;
 import com.horarios.model.AsignaturaDao;
-import com.horarios.model.Aula;
-import com.horarios.model.AulaDao;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+
+import java.util.List;
+
 @Controller
 @RequestMapping(value = "/asignatura")
 public class AsignaturaController {
@@ -57,5 +56,40 @@ public class AsignaturaController {
 
         }
         return "guardado papa :v ";
+    }
+
+    @RequestMapping(value = "/search")
+    @ResponseBody
+    public List<Asignatura> search(){
+        List<Asignatura> lista = null;
+        try {
+             lista = _asignaturaDao.getAsignaturas("ca");
+        }
+        catch (Exception e){
+            System.out.println("error");
+            e.printStackTrace();
+            //return e.getMessage();
+        }
+        return lista;
+    }
+
+    @RequestMapping(value = "/listby")
+    @ResponseBody
+    public List<Asignatura> asignaturasByCicloAndPlan(
+            @RequestParam(value="ciclo", defaultValue = "101") String ciclo,
+            @RequestParam(value="plan", defaultValue = "101") String plan
+    ){
+        List<Asignatura> lista = null;
+        try {
+
+            lista = _asignaturaDao.getAsignaturasByCicloAndPlan(ciclo, plan);
+
+        }catch (Exception e){
+
+            System.out.println("error");
+            e.printStackTrace();
+            //return e.getMessage();
+        }
+        return lista;
     }
 }
