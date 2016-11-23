@@ -36,10 +36,6 @@ public class AulaDao {
                 "from  Aula where idaula = :idaula" )
                 .setParameter("idaula",idaula)
                 .uniqueResult();
-
-
-
-
         return a;
 
     }

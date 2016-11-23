@@ -23,32 +23,37 @@ public class AulaController {
         catch (Exception e){
             return e.getMessage();
         }
-        return "ya lo botamos papu!";
+        return "Aula Destruida";
     }
 
     @RequestMapping(value = "/save")
     @ResponseBody
-    public  String create(){
+    public String create(@RequestParam(value = "nroaula", defaultValue = "000") String nroaula,
+                          @RequestParam(value = "aforomax", defaultValue = "40") String aforomax,
+                          @RequestParam(value = "pizara", defaultValue = "disponible") String pizara,
+                          @RequestParam(value = "proyector", defaultValue = "disponible") String proyector,
+                          @RequestParam(value = "audio", defaultValue = "disponible") String audio,
+                          @RequestParam(value = "ecram", defaultValue = "disponible") String ecram,
+                          @RequestParam(value = "equipopc", defaultValue = "disponible") String equipopc,
+                          @RequestParam(value = "nivel", defaultValue = "primer") String nivel,
+                          @RequestParam(value = "estado", defaultValue = "1") String estado){
         try{
             Aula aula =new Aula();
-            aula.setNroaula("102");
-            aula.setAforomax("40");
-            aula.setPizarra("disponible");
-            aula.setProyector("disponible");
-            aula.setAudio("disponible");
-            aula.setEcram("disponible");
-            aula.setEquipopc("disponible");
-            aula.setNivel("primer");
-            aula.setEstado(1);
+            aula.setNroaula(nroaula);
+            aula.setAforomax(aforomax);
+            aula.setPizarra(pizara);
+            aula.setProyector(proyector);
+            aula.setAudio(audio);
+            aula.setEcram(ecram);
+            aula.setEquipopc(equipopc);
+            aula.setNivel(nivel);
+            aula.setEstado(Integer.parseInt(estado));
             _aulaDao.save(aula);
-
-
         }
         catch (Exception e){
             return e.getMessage();
-
         }
-        return "guardado papa :v ";
+        return "Aula creada exitosamente";
     }
 
     @RequestMapping(value = "/getaula")
